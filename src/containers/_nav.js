@@ -10,6 +10,28 @@ export default [
     }
   },
   {
+    _tag: 'CSidebarNavItem',
+    name: 'setting',
+    to: '/setting',
+    icon: 'cil-speedometer',
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    },
+    
+  },  {
+    _tag: 'CSidebarNavItem',
+    name: 'setting2',
+    to: '/setting2',
+    icon: 'cil-speedometer',
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    },
+    
+  },
+
+  {
     _tag: 'CSidebarNavTitle',
     _children: ['Theme']
   },
