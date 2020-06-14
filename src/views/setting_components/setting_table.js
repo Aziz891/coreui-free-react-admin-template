@@ -11,16 +11,16 @@ import {
 
 import usersData from '../users/UsersData'
 
-const getBadge = status => {
-  switch (status) {
-    case 'Active': return 'success'
+const getBadge = Flags => {
+  switch (Flags) {
+    case 'OK': return 'success'
     case 'Inactive': return 'secondary'
     case 'Pending': return 'warning'
-    case 'Banned': return 'danger'
+    case 'Require Review': return 'danger'
     default: return 'primary'
   }
 }
-const fields = ['name','registered', 'role', 'status']
+const fields = ['Name','Description', 'Value', 'Flags']
 
 class Setting_Table extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class Setting_Table extends Component {
               </CCardHeader>
               <CCardBody>
               <CDataTable
-                items={usersData}
+                items={this.props.location.state.data.data}
                 fields={fields}
                 hover
                 striped
@@ -58,11 +58,11 @@ class Setting_Table extends Component {
                 itemsPerPage={30}
                 pagination
                 scopedSlots = {{
-                  'status':
+                  'Flags':
                     (item)=>(
                       <td>
-                        <CBadge color={getBadge(item.status)}>
-                          {item.status}
+                        <CBadge color={getBadge(item.Flags)}>
+                          {item.Flags}
                         </CBadge>
                       </td>
                     )

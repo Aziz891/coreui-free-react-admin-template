@@ -1,4 +1,5 @@
 import React from 'react'
+import {Redirect} from 'react-router'
 
 import axios from 'axios';
 import {
@@ -30,9 +31,16 @@ import {
   CInputGroupText,
   CLabel,
   CSelect,
-  CRow
+  CRow,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
+  
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import SettingModal from '../setting_components/settingModal'
 
 class SettingsForm extends React.Component {
 //   const [collapsed, setCollapsed] = React.useState(true)
@@ -40,7 +48,9 @@ class SettingsForm extends React.Component {
 
 constructor(props) {
     super(props);
-    this.state = {value: '', file: ''};
+    this.tableData = {};
+    this.state = {value: '', file: '', buttonClicked: false, showModal: false, redirect:false};
+  
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,17 +59,22 @@ constructor(props) {
     
   }
 
+
   handleChange(event) {
     this.setState({value: event.target.value});
+  }
+  modalToggle(value){
+    
+    this.setState({showModal: value});
 }
 
 handleChangeFile(event) {
     event.preventDefault();
     console.log(event.target.files);
     this.setState({file: event.target.files[0]});
-}
-
-handleSubmit(event) {
+  }
+  
+  handleSubmit(event) {
     event.preventDefault();
     const FormData = require('form-data');
     const form = new FormData();
@@ -68,34 +83,71 @@ handleSubmit(event) {
     
     
     
-      
-   
-    // const formData   = {
-    //     name45: this.state.value,
-    //     file: this.state.file
-       
-    //   };
-    //   console.log(formData)
     
+    
+    // const formData   = {
+      //     name45: this.state.value,
+      //     file: this.state.file
+      
+      //   };
+      //   console.log(formData)
+      
       axios( { method: 'post'  , url: `http://127.0.0.1:8000/faults/setting_check/`, data: form 
       , headers: { }
-  
-      })
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-        })
-
-
-
+      
+    })
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+      this.tableData = JSON.parse( res.data['result'])
+      console.log(this.tableData)
+      console.log('working');
+      this.modalToggle(true)
+      
+      
+    })
+    
+    
+    
   }
   handleClick(event){console.log('clicked')}
+  handleredirect(){
+    this.setState({redirect: true});
+    
+  }
   
- render() {
-     
- 
-  return (
-    <>
+  
+  render() {
+    
+    if (this.state.redirect) {
+ return <Redirect push to={{
+  pathname: '/setting2',
+  state: { data: this.tableData }
+}}/>;
+}
+    
+    return (
+      <>
+
+
+<CModal 
+        show={this.state.showModal} 
+        onClose={() => this.modalToggle(false)}
+      >
+        <CModalHeader closeButton>
+          <CModalTitle>Modal title</CModalTitle>
+        </CModalHeader>
+        <CModalBody>
+         The setting file has been succefully read and analyzed by server. Click continue to view results
+        </CModalBody>
+        <CModalFooter>
+          <CButton  onClick={() => this.handleredirect()} color="primary">Continue</CButton>{' '}
+          <CButton 
+            color="secondary" 
+            onClick={() => this.modalToggle(false)}
+          >Cancel</CButton>
+        </CModalFooter>
+      </CModal>
       
       <CRow>
         <CCol xs="12" md="6">
@@ -251,12 +303,12 @@ handleSubmit(event) {
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
-                  <CLabel col md="3" htmlFor="file-input">File input</CLabel>
+                  <CLabel col md="3" htmlFor="file-input">Setting File</CLabel>
                   <CCol xs="12" md="9">
                     <CInputFile id="file-input" name="file-input" onChange={ this.handleChangeFile } />
                   </CCol>
                 </CFormGroup>
-                <CFormGroup row>
+                {/* <CFormGroup row>
                   <CCol md="3">
                     <CLabel>Multiple File input</CLabel>
                   </CCol>
@@ -271,8 +323,8 @@ handleSubmit(event) {
                       Choose Files...
                     </CLabel>
                   </CCol>
-                </CFormGroup>
-                <CFormGroup row>
+                </CFormGroup> */}
+                {/* <CFormGroup row>
                   <CLabel col md={3}>Custom file input</CLabel>
                   <CCol xs="12" md="9">
                     <CInputFile custom id="custom-file-input"/>
@@ -280,7 +332,7 @@ handleSubmit(event) {
                       Choose file...
                     </CLabel>
                   </CCol>
-                </CFormGroup>
+                </CFormGroup> */}
               <CButton   type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
               </CForm>
             </CCardBody>

@@ -29,8 +29,8 @@ const TheSidebar = () => {
       <CSidebarBrand className="d-md-down-none" to="/">
         <CIcon
           className="c-sidebar-brand-full"
-          name="logo-negative"
-          height={35}
+          src="https://www.se.com.sa/style%20library/sec/Images/Logo_EN.png"
+          height={70}
         />
         <CIcon
           className="c-sidebar-brand-minimized"
