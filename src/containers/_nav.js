@@ -1,25 +1,25 @@
 export default [
-  // {
-  //   _tag: 'CSidebarNavItem',
-  //   name: 'Dashboard',
-  //   to: '/dashboard',
-  //   icon: 'cil-speedometer',
-  //   badge: {
-  //     color: 'info',
-  //     text: 'NEW',
-  //   }
-  // },
+   {
+     _tag: 'CSidebarNavItem',
+     name: 'Dashboard',
+     to: '/dashboard',
+     icon: 'cil-speedometer',
+     badge: {
+       color: 'success',
+       text: 'Coomming Soon',
+     }
+   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'setting',
+    name: 'Settings Analyzer',
     to: '/setting',
-    icon: 'cil-speedometer',
+    icon: 'cil-IndentDecrease',
     badge: {
       color: 'info',
       // text: 'NEW',
     },
-    
-  }, 
+
+  },
   //  {
   //   _tag: 'CSidebarNavItem',
   //   name: 'setting2',
@@ -29,7 +29,7 @@ export default [
   //     color: 'info',
   //     text: 'NEW',
   //   },
-    
+
   // },
 
   // {

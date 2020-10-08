@@ -30,17 +30,13 @@ class Setting_Table extends Component {
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleChangeFile = this.handleChangeFile.bind(this);
-    
-    
+
+
   }
 
   render() {
     return (
       <>
-        
-  
-        
-  
         <CRow>
           <CCol>
             <CCard>
@@ -72,7 +68,7 @@ class Setting_Table extends Component {
             </CCard>
           </CCol>
         </CRow>
-          
+
       </>
     )
   }

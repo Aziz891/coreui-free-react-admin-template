@@ -54,7 +54,7 @@ const Users = () => {
             ]}
             hover
             striped
-            itemsPerPage={5}
+            itemsPerPage={4}
             activePage={page}
             clickableRows
             onRowClick={(item) => history.push(`/users/${item.id}`)}
@@ -73,7 +73,7 @@ const Users = () => {
             activePage={page}
             onActivePageChange={pageChange}
             pages={5}
-            doubleArrows={false} 
+            doubleArrows={false}
             align="center"
           />
           </CCardBody>

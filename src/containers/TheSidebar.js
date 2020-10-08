@@ -12,6 +12,7 @@ import {
   CSidebarNavItem,
 } from '@coreui/react'
 
+
 import CIcon from '@coreui/icons-react'
 
 // sidebar nav config
@@ -30,7 +31,7 @@ const TheSidebar = () => {
         <CIcon
           className="c-sidebar-brand-full"
           src="https://www.se.com.sa/style%20library/sec/Images/Logo_EN.png"
-          height={70}
+          height={60}
         />
         <CIcon
           className="c-sidebar-brand-minimized"

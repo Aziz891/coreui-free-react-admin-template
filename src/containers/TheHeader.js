@@ -16,7 +16,7 @@ import CIcon from '@coreui/icons-react'
 // routes config
 import routes from '../routes'
 
-import { 
+import {
   TheHeaderDropdown,
   TheHeaderDropdownMssg,
   TheHeaderDropdownNotif,
@@ -53,26 +53,27 @@ const TheHeader = () => {
         <CIcon name="logo" height="48" alt="Logo"/>
       </CHeaderBrand>
 
-      {/* <CHeaderNav className="d-md-down-none mr-auto">
+      <CHeaderNav className="d-md-down-none mr-auto">
+        <CHeaderNavItem className="px-3">
+          <CHeaderNavLink> <b>Dashboard</b> <small> (Cooming Soon)</small> </CHeaderNavLink>
+        </CHeaderNavItem>
         <CHeaderNavItem className="px-3" >
-          <CHeaderNavLink to="/dashboard">Dashboard</CHeaderNavLink>
+          <CHeaderNavLink to="/dashboard"> <b>Settings Analyzer</b></CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem  className="px-3">
-          <CHeaderNavLink to="/users">Users</CHeaderNavLink>
+          <CHeaderNavLink to="/users"> <b>Users</b></CHeaderNavLink>
         </CHeaderNavItem>
-        <CHeaderNavItem className="px-3">
-          <CHeaderNavLink>Settings</CHeaderNavLink>
-        </CHeaderNavItem>
-      </CHeaderNav> */}
+
+      </CHeaderNav>
 
       <CHeaderNav className="px-3">
-        {/* <TheHeaderDropdownNotif/>
-        <TheHeaderDropdownTasks/>
-        <TheHeaderDropdownMssg/> */}
+         <TheHeaderDropdownNotif/>
+        {/*<TheHeaderDropdownTasks/>*/}
+        {/*<TheHeaderDropdownMssg/>*/}
         {/* <TheHeaderDropdown/> */}
       </CHeaderNav>
 
-      
+
     </CHeader>
   )
 }
