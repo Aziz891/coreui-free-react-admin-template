@@ -12,7 +12,6 @@ import {
   CSidebarNavItem,
 } from '@coreui/react'
 
-
 import CIcon from '@coreui/icons-react'
 
 // sidebar nav config
@@ -27,20 +26,29 @@ const TheSidebar = () => {
       show={show}
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
+
+     {/*-----------------------------------------------------------------*/}
+
       <CSidebarBrand className="d-md-down-none" to="/">
         <CIcon
           className="c-sidebar-brand-full"
-          src="https://www.se.com.sa/style%20library/sec/Images/Logo_EN.png"
-          height={60}
-        />
+          img src="/images/relaypioneers-w.png"
+          //src="https://www.se.com.sa/style%20library/sec/Images/Logo_EN.png"
+          height={50}
+         />
+
         <CIcon
           className="c-sidebar-brand-minimized"
-          name="sygnet"
-          height={35}
-        />
-      </CSidebarBrand>
-      <CSidebarNav>
+          img src="/images/rp-w.png"
+          //name="sygnet"
+          height={50}
+         />
 
+       </CSidebarBrand>
+
+      {/*-----------------------------------------------------------------*/}
+
+      <CSidebarNav>
         <CCreateElement
           items={navigation}
           components={{
@@ -48,12 +56,19 @@ const TheSidebar = () => {
             CSidebarNavDropdown,
             CSidebarNavItem,
             CSidebarNavTitle
-          }}
-        />
-      </CSidebarNav>
+           }}
+         />
+        </CSidebarNav>
+
+      {/*-----------------------------------------------------------------*/}
+
       <CSidebarMinimizer className="c-d-md-down-none"/>
-    </CSidebar>
+
+      {/*-----------------------------------------------------------------*/}
+
+  </CSidebar>
   )
+
 }
 
 export default React.memo(TheSidebar)

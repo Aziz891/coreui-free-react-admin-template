@@ -55,10 +55,10 @@ const TheHeader = () => {
 
       <CHeaderNav className="d-md-down-none mr-auto">
         <CHeaderNavItem className="px-3">
-          <CHeaderNavLink> <b>Dashboard</b> <small> (Cooming Soon)</small> </CHeaderNavLink>
+          <CHeaderNavLink to="/dashboard"> <b>Dashboard</b> <small> (Cooming Soon)</small> </CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem className="px-3" >
-          <CHeaderNavLink to="/dashboard"> <b>Settings Analyzer</b></CHeaderNavLink>
+          <CHeaderNavLink to="/setting"> <b>Settings Analyzer</b></CHeaderNavLink>
         </CHeaderNavItem>
         <CHeaderNavItem  className="px-3">
           <CHeaderNavLink to="/users"> <b>Users</b></CHeaderNavLink>
