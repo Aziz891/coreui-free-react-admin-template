@@ -29,7 +29,7 @@ const TheSidebar = () => {
 
      {/*-----------------------------------------------------------------*/}
 
-      <CSidebarBrand className="d-md-down-none" to="/">
+      <CSidebarBrand className="d-md-down-none" to="/project_info">
         <CIcon
           className="c-sidebar-brand-full"
           img src="/images/relaypioneers-w.png"

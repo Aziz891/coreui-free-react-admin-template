@@ -39,11 +39,15 @@ const Typography = React.lazy(() => import('./views/theme/typography/Typography'
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
+const Project = React.lazy(() => import('./views/project_info/project_info'));
+const Login = React.lazy(() => import('./views/pages/login/Login'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/setting', name: 'setting', component: Setting },
+  { path: '/project_info', name: 'Project Information', component: Project },
+  { path: '/login', name: 'Login', component: Login },
   { path: '/setting2', name: 'setting2', component: Setting2 },
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },

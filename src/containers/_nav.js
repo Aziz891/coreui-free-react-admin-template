@@ -18,8 +18,17 @@ export default [
       color: 'info',
       // text: 'NEW',
     },
-
   },
+    {
+      _tag: 'CSidebarNavItem',
+      name: 'Users',
+      to: '/users',
+      icon: 'cil-people',
+      badge: {
+        color: 'info',
+        // text: 'NEW',
+      },
+    },
 //    {
 //     _tag: 'CSidebarNavItem',
 //     name: 'setting2',
@@ -256,10 +265,15 @@ export default [
          name: 'Login',
          to: '/login',
        },
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Register',
+//         to: '/register',
+//       },
        {
          _tag: 'CSidebarNavItem',
-         name: 'Register',
-         to: '/register',
+         name: 'Project Information',
+         to: '/project_info',
        },
 //       {
 //         _tag: 'CSidebarNavItem',
