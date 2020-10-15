@@ -12,6 +12,8 @@ import {
   CRow,
   CCallout
 } from '@coreui/react'
+
+
 import CIcon from '@coreui/icons-react'
 
 import MainChartExample from '../charts/MainChartExample.js'
@@ -22,6 +24,7 @@ const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
 const Dashboard = () => {
   return (
     <>
+
       <WidgetsDropdown />
       <CCard>
 

@@ -155,9 +155,11 @@ handleChangeFile(event) {
       {<CRow>
         {<CCol xs="12" md="6">
           {<CCard>
+
             <CCardHeader>
-              <b>Settings Analyzer</b>
+              <h2>Settings Analyzer</h2>
             </CCardHeader>
+
             {<CCardBody>
               {<CForm onSubmit={this.handleSubmit}  encType="multipart/form-data" className="form-horizontal">
 

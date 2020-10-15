@@ -6,7 +6,7 @@ export default [
      icon: 'cil-speedometer',
      badge: {
        color: 'success',
-       text: 'Coomming Soon',
+       //text: 'Coomming Soon',
      }
    },
   {

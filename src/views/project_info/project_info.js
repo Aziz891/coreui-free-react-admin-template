@@ -1,28 +1,96 @@
 import React, { lazy } from 'react'
 import {
-  CBadge,
-  CButton,
-  CButtonGroup,
-  CCard,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CProgress,
-  CRow,
-  CCallout
+   CButton,
+   CCard,
+   CCardBody,
+   CCardGroup,
+   CCol,
+   CContainer,
+   CForm,
+   CInput,
+   CInputGroup,
+   CInputGroupPrepend,
+   CInputGroupText,
+   CRow,
+   CCardHeader,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-import MainChartExample from '../charts/MainChartExample.js'
-
-const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
-const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
 
 const Project = () => {
   return (
     <>
-      <WidgetsDropdown />
+   <div className="c-app c-default-layout flex-row ">
+      <CContainer>
+        <CRow className="justify-content-center">
+          <CCol md="8">
+            <CCardGroup>
+              <CCard className="p-4">
+                <CCardBody>
+
+                  <CForm>
+                    <h1>Login</h1>
+                    <p className="text-muted">Sign In to your account</p>
+                    <CInputGroup className="mb-3">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-user" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="text" placeholder="Username" autoComplete="username" />
+                    </CInputGroup>
+                    <CInputGroup className="mb-4">
+                      <CInputGroupPrepend>
+                        <CInputGroupText>
+                          <CIcon name="cil-lock-locked" />
+                        </CInputGroupText>
+                      </CInputGroupPrepend>
+                      <CInput type="password" placeholder="Password" autoComplete="current-password" />
+                    </CInputGroup>
+                    <CRow>
+                      <CCol xs="6">
+                        <CButton color="primary" className="px-4">Login</CButton>
+                      </CCol>
+                      <CCol xs="6" className="text-right">
+                        <CButton color="link" className="px-0">Forgot password?</CButton>
+                      </CCol>
+                    </CRow>
+                  </CForm>
+
+                </CCardBody>
+              </CCard>
+
+              <CCard className="text-black py-5 d-md-down-none" style={{ width: '44%' }}>
+                <CCardBody className="text-center">
+                  <div>
+
+                    {/*<h2>Sign up</h2>*/}
+
+                    <CIcon
+                      className="c-sidebar-brand-full"
+                      img src="/images/db-icon.png"
+                      height={250}
+                    />
+
+
+
+                     <br />
+
+                      <CButton to="/dashboard" color="primary" className="mt-3" active tabIndex={-1}>Dashboard</CButton>
+
+
+                  </div>
+                </CCardBody>
+              </CCard>
+            </CCardGroup>
+          </CCol>
+        </CRow>
+      </CContainer>
+
+
+    </div>
+
+                {/*----------------------------------------------------------------------------*/}
 
       <CRow>
         <CCol>
