@@ -35,7 +35,7 @@ const TheContent = () => {
                   )} />
               )
             })}
-            <Redirect from="/" to="/setting" />
+            <Redirect from="/" to="/project_info" />
           </Switch>
         </Suspense>
       </CContainer>

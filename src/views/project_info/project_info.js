@@ -20,6 +20,7 @@ import CIcon from '@coreui/icons-react'
 const Project = () => {
   return (
     <>
+
    <div className="c-default-layou flex-row ">
       <CContainer>
         <CRow className="justify-content-center">

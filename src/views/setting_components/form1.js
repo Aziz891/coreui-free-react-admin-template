@@ -37,8 +37,8 @@ import {
   CModalFooter,
   CModalHeader,
   CModalTitle,
-
 } from '@coreui/react'
+
 import CIcon from '@coreui/icons-react'
 import SettingModal from '../setting_components/settingModal'
 
