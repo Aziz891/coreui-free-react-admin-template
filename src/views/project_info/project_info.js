@@ -20,7 +20,7 @@ import CIcon from '@coreui/icons-react'
 const Project = () => {
   return (
     <>
-   <div className="c-app c-default-layout flex-row ">
+   <div className="c-default-layou flex-row ">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md="8">
@@ -60,11 +60,9 @@ const Project = () => {
                 </CCardBody>
               </CCard>
 
-              <CCard className="text-black py-5 d-md-down-none" style={{ width: '44%' }}>
+              <CCard className="text-black" style={{ width: '44%' }}>
                 <CCardBody className="text-center">
                   <div>
-
-                    {/*<h2>Sign up</h2>*/}
 
                     <CIcon
                       className="c-sidebar-brand-full"
@@ -72,12 +70,9 @@ const Project = () => {
                       height={250}
                     />
 
-
-
                      <br />
 
                       <CButton to="/dashboard" color="primary" className="mt-3" active tabIndex={-1}>Dashboard</CButton>
-
 
                   </div>
                 </CCardBody>
@@ -86,9 +81,34 @@ const Project = () => {
           </CCol>
         </CRow>
       </CContainer>
-
-
     </div>
+
+
+         <br />
+         <br />
+
+
+                {/*----------------------------------------------------------------------------*/}
+
+   <div className="c-default-layou flex-row ">
+      <CContainer>
+        <CRow className="justify-content-center">
+                  <div>
+
+                    <CIcon
+                      className="c-sidebar-brand-full "
+                      img src="/images/intro.gif"
+                      height={415}
+                    />
+
+                  </div>
+        </CRow>
+      </CContainer>
+    </div>
+
+
+         <br />
+         <br />
 
                 {/*----------------------------------------------------------------------------*/}
 
@@ -101,8 +121,6 @@ const Project = () => {
             </CCardHeader>
 
             <CCardBody>
-
-              <br />
 
               <table className="table table-hover table-outline mb-0 d-none d-sm-table">
                 <thead className="thead-light">
