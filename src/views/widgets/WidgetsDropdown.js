@@ -18,17 +18,17 @@ const WidgetsDropdown = () => {
     <CRow>
       <CCol sm="6" lg="3">
         <CWidgetDropdown
-          color="gradient-primary"
-          header="9.823"
-          text="Members online"
+          color="gradient-danger"
+          header="648"
+          text="Alarms"
           footerSlot={
             <ChartLineSimple
               pointed
               className="c-chart-wrapper mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[65, 59, 84, 84, 51, 55, 40]}
-              pointHoverBackgroundColor="primary"
-              label="Members"
+              dataPoints={[107, 101, 84, 84, 93, 97, 82]}
+              pointHoverBackgroundColor="black"
+              label="Alarms"
               labels="months"
             />
           }
@@ -49,16 +49,16 @@ const WidgetsDropdown = () => {
 
       <CCol sm="6" lg="3">
         <CWidgetDropdown
-          color="gradient-info"
-          header="9.823"
-          text="Members online"
+          color="gradient-success"
+          header="612"
+          text="Alarms Processed"
           footerSlot={
             <ChartLineSimple
               pointed
               className="mt-3 mx-3"
               style={{height: '70px'}}
-              dataPoints={[1, 18, 9, 17, 34, 22, 11]}
-              pointHoverBackgroundColor="info"
+              dataPoints={[90, 110, 80, 90, 47, 95, 100]}
+              pointHoverBackgroundColor="black"
               options={{ elements: { line: { tension: 0.00001 }}}}
               label="Members"
               labels="months"
@@ -82,17 +82,14 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
-          header="9.823"
-          text="Members online"
+          header="46"
+          text="PED Orders"
           footerSlot={
-            <ChartLineSimple
-              className="mt-3"
+            <ChartBarSimple
+              className="mt-3 mx-3"
               style={{height: '70px'}}
-              backgroundColor="rgba(255,255,255,.2)"
-              dataPoints={[78, 81, 80, 45, 34, 12, 40]}
-              options={{ elements: { line: { borderWidth: 2.5 }}}}
-              pointHoverBackgroundColor="warning"
-              label="Members"
+              backgroundColor="rgb(20, 12, 152)"
+              label="Orders"
               labels="months"
             />
           }
@@ -114,8 +111,8 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header="9.823"
-          text="Members online"
+          header="46"
+          text="Orders Processed"
           footerSlot={
             <ChartBarSimple
               className="mt-3 mx-3"
