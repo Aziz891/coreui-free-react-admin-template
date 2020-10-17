@@ -70,7 +70,7 @@ const Dashboard = () => {
                 className="progress-xs mt-2"
                 precision={1}
                 color="info"
-                value={40}
+                value={100}
               />
             </CCol>
 
@@ -81,7 +81,7 @@ const Dashboard = () => {
                 className="progress-xs mt-2"
                 precision={1}
                 color="success"
-                value={40}
+                value={87.15}
               />
             </CCol>
 
@@ -92,7 +92,7 @@ const Dashboard = () => {
                 className="progress-xs mt-2"
                 precision={1}
                 color="danger"
-                value={40}
+                value={50}
               />
             </CCol>
 
