@@ -17,7 +17,7 @@ const MainChartExample = attributes => {
     const data2 = []
     const data3 = []
     for (let i = 0; i <= elements; i++) {
-      data1.push(random(10, 80))
+      data1.push(random(0, 95))
       data2.push(random(0, 40))
       data3.push(25)
     }

@@ -140,6 +140,7 @@ const WidgetsDropdown = () => {
           </CDropdown>
         </CWidgetDropdown>
       </CCol>
+
     </CRow>
   )
 }

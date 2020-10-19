@@ -153,7 +153,7 @@ handleChangeFile(event) {
  </CModal>}
 
       {<CRow>
-        {<CCol xs="12" md="6">
+        {<CCol xs="12" md="8">
           {<CCard>
 
             <CCardHeader>
@@ -164,6 +164,29 @@ handleChangeFile(event) {
               {<CForm onSubmit={this.handleSubmit}  encType="multipart/form-data" className="form-horizontal">
 
                 {<CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="text">Substation Name</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9" size="lg">
+                    <CInput type="text" />
+                  </CCol>
+                </CFormGroup>}
+
+                {/*-----------------------------------------------------------------*/}
+
+                {<CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="text">Bay Number</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9" size="lg">
+                    <CInput type="text" />
+                  </CCol>
+                </CFormGroup>}
+
+                {/*-----------------------------------------------------------------*/}
+
+                {<CFormGroup row>
+
                   <CCol md="3">
                     <CLabel htmlFor="select">Manufacturer</CLabel>
                   </CCol>
@@ -184,10 +207,10 @@ handleChangeFile(event) {
 
                 {<CFormGroup row>
                   <CCol md="3">
-                    <CLabel htmlFor="selectLg">Scheme Type</CLabel>
+                    <CLabel htmlFor="selectms">Scheme Type</CLabel>
                   </CCol>
-                  <CCol xs="12" md="9" size="lg">
-                    <CSelect custom size="lg" name="selectLg" id="selectLg">
+                  <CCol xs="12" md="9" size="ms">
+                    <CSelect custom size="ms" name="selectms" id="selectms">
                       <option value="0">----</option>
                       <option value="1">OPDS</option>
                       <option value="2">Non-OPDS</option>
@@ -211,13 +234,20 @@ handleChangeFile(event) {
                            />
                           <CLabel variant="custom-checkbox" htmlFor="inline-checkbox1">Distance</CLabel>
                         </CFormGroup>
+
+                         <CFormGroup variant="custom-checkbox" inline>
+                            <CInputCheckbox custom id="inline-checkbox2" name="inline-checkbox2" value="option2" />
+                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Differential</CLabel>
+                         </CFormGroup>
+
                          <CFormGroup variant="custom-checkbox" inline>
                             <CInputCheckbox custom id="inline-checkbox2" name="inline-checkbox2" value="option2" />
                             <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Over Current</CLabel>
                          </CFormGroup>
+
                          <CFormGroup variant="custom-checkbox" inline>
                             <CInputCheckbox custom id="inline-checkbox3" name="inline-checkbox3" value="option3" />
-                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Whole Settings</CLabel>
+                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Multifunction</CLabel>
                          </CFormGroup>
                   </CCol>
                 </CFormGroup>}
