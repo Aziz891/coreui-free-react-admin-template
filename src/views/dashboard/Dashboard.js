@@ -13,7 +13,6 @@ import {
   CCallout
 } from '@coreui/react'
 
-
 import CIcon from '@coreui/icons-react'
 
 import MainChartExample from '../charts/MainChartExample.js'
@@ -56,7 +55,7 @@ const Dashboard = () => {
             </CCol>
           </CRow>
 
-          <MainChartExample style={{height: '300px', marginTop: '40px'}}/>
+          <MainChartExample style={{height: '150px', marginTop: '20px'}}/>
 
         </CCardBody>
 
@@ -99,6 +98,9 @@ const Dashboard = () => {
           </CRow>
         </CCardFooter>
       </CCard>
+
+    <WidgetsDropdown />
+
     </>
   )
 }
