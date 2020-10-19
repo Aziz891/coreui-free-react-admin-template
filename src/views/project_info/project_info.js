@@ -48,6 +48,9 @@ const Project = () => {
                       </CInputGroupPrepend>
                       <CInput type="password" placeholder="Password" autoComplete="current-password" />
                     </CInputGroup>
+
+                    <br/>
+
                     <CRow>
                       <CCol xs="6">
                         <CButton color="primary" className="px-4">Login</CButton>
@@ -73,7 +76,7 @@ const Project = () => {
 
                      <br />
 
-                      <CButton to="/dashboard" color="primary" className="mt-3" active tabIndex={-1}>Dashboard</CButton>
+                      <CButton to="/dashboard" color="success" className="mt-3" active tabIndex={-1}>Dashboard</CButton>
 
                   </div>
                 </CCardBody>
@@ -91,7 +94,7 @@ const Project = () => {
 
                 {/*----------------------------------------------------------------------------*/}
 
-   <div className="c-default-layou flex-row ">
+    <div className="c-default-layou flex-row ">
       <CContainer>
         <CRow className="justify-content-center">
                   <div>
