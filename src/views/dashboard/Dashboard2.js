@@ -10,7 +10,6 @@ import {
   CCol,
   CProgress,
   CRow,
-  CCallout
 } from '@coreui/react'
 
 import CIcon from '@coreui/icons-react'
@@ -20,7 +19,7 @@ import MainChartExample from '../charts/MainChartExample.js'
 const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
 const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
 
-const Dashboard = () => {
+const Dashboard2 = () => {
   return (
     <>
 
@@ -33,6 +32,7 @@ const Dashboard = () => {
               <h4 id="plan" className="card-title mb-0">Scheduled Maintenance Plan</h4>
               <div className="small text-muted">September, 2020</div>
             </CCol>
+
             <CCol sm="7" className="d-none d-md-block">
               <CButton color="primary" className="float-right">
                 <CIcon name="cil-cloud-download"/>
@@ -103,4 +103,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Dashboard2

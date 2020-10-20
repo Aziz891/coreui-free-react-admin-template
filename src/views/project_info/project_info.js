@@ -21,7 +21,7 @@ const Project = () => {
   return (
     <>
 
-   <div className="c-default-layou flex-row ">
+   <div className="c-default-layout flex-row ">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md="8">
@@ -76,7 +76,7 @@ const Project = () => {
 
                      <br />
 
-                      <CButton to="/dashboard" color="success" className="mt-3" active tabIndex={-1}>Dashboard</CButton>
+                      <CButton to="/dashboard2" color="success" className="mt-3" active tabIndex={-1}>Dashboard</CButton>
 
                   </div>
                 </CCardBody>
@@ -94,7 +94,7 @@ const Project = () => {
 
                 {/*----------------------------------------------------------------------------*/}
 
-    <div className="c-default-layou flex-row ">
+    <div className="c-default-layout flex-row ">
       <CContainer>
         <CRow className="justify-content-center">
                   <div>

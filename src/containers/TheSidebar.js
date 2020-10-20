@@ -23,7 +23,7 @@ const TheSidebar = () => {
 
   return (
     <CSidebar
-      show={show}
+     show={show}
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
 
