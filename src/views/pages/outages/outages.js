@@ -20,6 +20,13 @@ const Outages = () => {
   return (
     <>
 
+    <CCardHeader >
+       <h2 className="text-center">Otages</h2>
+    </CCardHeader>
+
+     <br/>
+     <br/>
+
 
     <div className="c-default-layou flex-row ">
       <CContainer>

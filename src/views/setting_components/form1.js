@@ -139,7 +139,7 @@ handleChangeFile(event) {
         onClose={() => this.modalToggle(false)}
       >
         <CModalHeader closeButton>
-          <CModalTitle>Modal title</CModalTitle>
+          <CModalTitle>Analyzer</CModalTitle>
         </CModalHeader>
         <CModalBody>
          The setting file has been succefully read and analyzed by server. Click continue to view results

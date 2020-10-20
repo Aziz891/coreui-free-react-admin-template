@@ -1,18 +1,8 @@
 import React, { lazy } from 'react'
 import {
-   CButton,
-   CCard,
-   CCardBody,
-   CCardGroup,
-   CCol,
    CContainer,
-   CForm,
-   CInput,
-   CInputGroup,
-   CInputGroupPrepend,
-   CInputGroupText,
    CRow,
-   CCardHeader,
+   CCardHeader
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
@@ -21,6 +11,12 @@ const Orders= () => {
   return (
     <>
 
+    <CCardHeader >
+       <h2 className="text-center">Orders</h2>
+    </CCardHeader>
+
+     <br/>
+     <br/>
 
     <div className="c-default-layou flex-row ">
       <CContainer>

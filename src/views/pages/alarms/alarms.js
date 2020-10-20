@@ -21,6 +21,13 @@ const Alarms = () => {
   return (
     <>
 
+    <CCardHeader >
+       <h2 className="text-center">Alarms</h2>
+    </CCardHeader>
+
+     <br/>
+     <br/>
+
 
     <div className="c-default-layou flex-row ">
       <CContainer>
