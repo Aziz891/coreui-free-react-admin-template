@@ -53,7 +53,7 @@ const Project = () => {
 
                     <CRow>
                       <CCol xs="6">
-                        <CButton color="primary" className="px-4">Login</CButton>
+                        <CButton to="/dashboard" color="primary" className="px-4">Login</CButton>
                       </CCol>
                       <CCol xs="6" className="text-right">
                         <CButton color="link" className="px-0">Forgot password?</CButton>
@@ -104,7 +104,6 @@ const Project = () => {
                       img src="/images/intro.gif"
                       height={415}
                     />
-
                   </div>
         </CRow>
       </CContainer>

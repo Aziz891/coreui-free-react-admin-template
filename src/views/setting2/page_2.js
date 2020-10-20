@@ -9,21 +9,21 @@ import axios from "axios";
 
 class page_1 extends React.Component {
 
-  
+
 
     render() {
       return (
-        
+
 <div>
 
-{/* 
+{/*
             <div>
 
-            <Dashboard url={'ped'} title={'PED IPS Entries'}/> 
+            <Dashboard url={'ped'} title={'PED IPS Entries'}/>
             </div> */}
           <div>
 
-            
+
               <div>
 
             <CChartPie url={'http://10.75.81.29:81/faults/ipsrelays/'} title={'Most Common Relays'} />
@@ -32,27 +32,13 @@ class page_1 extends React.Component {
 
             <CChartPie url={'http://10.75.81.29:81/faults/ipstechnology/'}  title={'Breakdown of Relay Technology'}/>
               </div> */}
-            
 
-            
+
           </div>
-         
-            
-          
+
 
 </div>
-  
 
-
-     
-  
-
-      
-        
-
-        
-      
-     
 
       );
     }

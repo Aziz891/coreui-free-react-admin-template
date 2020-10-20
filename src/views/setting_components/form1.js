@@ -66,6 +66,7 @@ constructor(props) {
   handleChange(event) {
     this.setState({value: event.target.value});
   }
+
   modalToggle(value){
 
     this.setState({showModal: value});
@@ -222,6 +223,18 @@ handleChangeFile(event) {
 
                 {<CFormGroup row>
                   <CCol md="3">
+                    <CLabel htmlFor="selectms">Serial No. List</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9" size="ms">
+                    <CSelect custom size="ms" name="selectms" id="selectms">
+                      <option value="0">----</option>
+                    </CSelect>
+                  </CCol>
+                </CFormGroup>}
+                {/*-----------------------------------------------------------------*/}
+
+                {<CFormGroup row>
+                  <CCol md="3">
                     <CLabel>Function</CLabel>
                   </CCol>
                   <CCol md="9">
@@ -241,13 +254,13 @@ handleChangeFile(event) {
                          </CFormGroup>
 
                          <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox2" name="inline-checkbox2" value="option2" />
-                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Over Current</CLabel>
+                            <CInputCheckbox custom id="inline-checkbox3" name="inline-checkbox3" value="option3" />
+                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Over Current</CLabel>
                          </CFormGroup>
 
                          <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox3" name="inline-checkbox3" value="option3" />
-                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Multifunction</CLabel>
+                            <CInputCheckbox custom id="inline-checkbox4" name="inline-checkbox4" value="option4" />
+                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox4">Multifunction</CLabel>
                          </CFormGroup>
                   </CCol>
                 </CFormGroup>}

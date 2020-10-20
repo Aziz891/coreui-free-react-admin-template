@@ -19,16 +19,22 @@ export default [
       // text: 'NEW',
     },
   },
-    {
-      _tag: 'CSidebarNavItem',
-      name: 'Users',
-      to: '/users',
-      icon: 'cil-people',
-      badge: {
-        color: 'info',
-        // text: 'NEW',
-      },
-    },
+  {
+     _tag: 'CSidebarNavItem',
+     name: 'Users',
+     to: '/users',
+     icon: 'cil-people',
+     badge: {
+       color: 'info',
+       // text: 'NEW',
+     },
+   },
+//  {
+//     _tag: 'CSidebarNavItem',
+//     name: 'Project Information',
+//     to: '/project_info',
+//     icon: 'cil-Home',
+//   },
 //    {
 //     _tag: 'CSidebarNavItem',
 //     name: 'setting2',
@@ -262,19 +268,24 @@ export default [
      _children: [
        {
          _tag: 'CSidebarNavItem',
-         name: 'Login',
-         to: '/login',
+         name: 'Alarms',
+         to: '/alarms',
+       },
+       {
+         _tag: 'CSidebarNavItem',
+         name: 'Orders',
+         to: '/orders',
+       },
+       {
+         _tag: 'CSidebarNavItem',
+         name: 'Outages',
+         to: '/outages',
        },
 //       {
 //         _tag: 'CSidebarNavItem',
 //         name: 'Register',
 //         to: '/register',
 //       },
-       {
-         _tag: 'CSidebarNavItem',
-         name: 'Project Information',
-         to: '/project_info',
-       },
 //       {
 //         _tag: 'CSidebarNavItem',
 //         name: 'Error 404',
