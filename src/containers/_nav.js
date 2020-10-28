@@ -19,16 +19,16 @@ export default [
       // text: 'NEW',
     },
   },
-  {
-     _tag: 'CSidebarNavItem',
-     name: 'Users',
-     to: '/users',
-     icon: 'cil-people',
-     badge: {
-       color: 'info',
-       // text: 'NEW',
-     },
-   },
+//  {
+//     _tag: 'CSidebarNavItem',
+//     name: 'Users',
+//     to: '/users',
+//     icon: 'cil-people',
+//     badge: {
+//       color: 'info',
+//       // text: 'NEW',
+//     },
+//   },
 //  {
 //     _tag: 'CSidebarNavItem',
 //     name: 'Project Information',
