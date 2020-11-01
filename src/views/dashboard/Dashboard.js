@@ -32,9 +32,11 @@ const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
 
 const Dashboard = () => {
   return (
-    <CCardGroup columns className = "cols-2" >
+<>
 
-      {
+    {<CCardGroup columns className = "cols-2" >
+
+     {
       <CCard>
 
         <CCardHeader>
@@ -105,8 +107,20 @@ const Dashboard = () => {
       </CCard>
       }
 
-
     </CCardGroup>
+  }
+
+     {
+      <CCard>
+
+        <CCardBody>
+            <WidgetsDropdown />
+        </CCardBody>
+
+      </CCard>
+      }
+
+</>
   )
 }
 

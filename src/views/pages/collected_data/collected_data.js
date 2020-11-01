@@ -7,12 +7,12 @@ import {
 import CIcon from '@coreui/icons-react'
 
 
-const Orders= () => {
+const Collected_Data= () => {
   return (
     <>
 
     <CCardHeader >
-       <h2 className="text-center">Orders</h2>
+       <h2 className="text-center">Collected Data</h2>
     </CCardHeader>
 
      <br/>
@@ -38,4 +38,4 @@ const Orders= () => {
   )
 }
 
-export default Orders
+export default Collected_Data

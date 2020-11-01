@@ -42,7 +42,7 @@ const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 const Project = React.lazy(() => import('./views/project_info/project_info'));
 const Alarms = React.lazy(() => import('./views/pages/alarms/alarms'));
-const Orders = React.lazy(() => import('./views/pages/orders/orders'));
+const Collected_Data = React.lazy(() => import('./views/pages/collected_data/collected_data'));
 const Outages = React.lazy(() => import('./views/pages/outages/outages'));
 const Login = React.lazy(() => import('./views/pages/login/Login'));
 
@@ -52,7 +52,7 @@ const routes = [
   { path: '/dashboard2', name: 'Dashboard2', component: Dashboard2 },
   { path: '/setting', name: 'setting', component: Setting },
   { path: '/alarms', name: 'alarms', component: Alarms },
-  { path: '/orders', name: 'orders', component: Orders },
+  { path: '/collected_data', name: 'collected_data', component: Collected_Data },
   { path: '/outages', name: 'outages', component: Outages },
   { path: '/project_info', name: 'Project Information', component: Project },
   { path: '/login', name: 'Login', component: Login },

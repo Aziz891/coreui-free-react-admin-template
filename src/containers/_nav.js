@@ -268,19 +268,19 @@ export default [
      _children: [
        {
          _tag: 'CSidebarNavItem',
+         name: 'Collected_Data',
+         to: '/collected_data',
+       },
+       {
+         _tag: 'CSidebarNavItem',
          name: 'Alarms',
          to: '/alarms',
        },
-       {
-         _tag: 'CSidebarNavItem',
-         name: 'Orders',
-         to: '/orders',
-       },
-       {
-         _tag: 'CSidebarNavItem',
-         name: 'Outages',
-         to: '/outages',
-       },
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Outages',
+//         to: '/outages',
+//       },
 //       {
 //         _tag: 'CSidebarNavItem',
 //         name: 'Register',
