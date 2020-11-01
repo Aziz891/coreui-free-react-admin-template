@@ -268,7 +268,7 @@ export default [
      _children: [
        {
          _tag: 'CSidebarNavItem',
-         name: 'Collected_Data',
+         name: 'Collected Data',
          to: '/collected_data',
        },
        {
