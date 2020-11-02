@@ -2,7 +2,12 @@ import React, { lazy } from 'react'
 import {
    CContainer,
    CRow,
-   CCardHeader
+   CCard,
+   CCardHeader,
+   CCardBody,
+   CCardFooter,
+   CCol,
+   CButton
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
@@ -11,9 +16,22 @@ const Collected_Data= () => {
   return (
     <>
 
-    <CCardHeader >
-       <h2 className="text-center">Collected Data</h2>
-    </CCardHeader>
+<CCard>
+        <CCardBody>
+          <CRow>
+            <CCol sm="5">
+              <h2 id="collect" className="card-title mb-0">Collected Data</h2>
+            </CCol>
+
+            <CCol sm="7" className="d-none d-md-block">
+              <CButton to="/settings_info" color="primary" className="float-right" active tabIndex={-1}>
+               Add new
+              </CButton>
+            </CCol>
+          </CRow>
+        </CCardBody>
+      </CCard>
+
 
      <br/>
      <br/>

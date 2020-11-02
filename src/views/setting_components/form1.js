@@ -9,6 +9,8 @@ import {
   CCardFooter,
   CCardHeader,
   CCol,
+  CContainer,
+  CCardGroup,
   CCollapse,
   CDropdownItem,
   CDropdownMenu,
@@ -86,16 +88,6 @@ handleChangeFile(event) {
     form.append('file', this.state.file);
 
 
-
-
-
-    // const formData   = {
-      //     name45: this.state.value,
-      //     file: this.state.file
-
-      //   };
-      //   console.log(formData)
-
       axios( { method: 'post'  , url: `http://127.0.0.1:8000/faults/setting_check/`, data: form
       , headers: { }
 
@@ -133,6 +125,89 @@ handleChangeFile(event) {
     return (
       <>
 
+    <CCardHeader >
+       <h2 className="text-center">Settings Analyzer</h2>
+    </CCardHeader>
+
+           <br />
+
+
+    {<CCardGroup columns className = "cols-2" >
+
+     {
+      <CCard>
+
+        <CCardHeader>
+         <h2>Localy</h2>
+        </CCardHeader>
+
+        <CCardBody className="text-center">
+           <div>
+               <CIcon
+                  className="c-sidebar-brand-full"
+                  img src="/images/localy icon.png"
+                   height={250} />
+
+                   <br />
+
+           </div>
+        </CCardBody>
+
+        <CCardFooter>
+               {<CFormGroup row>
+                 <CCol >
+                    <CInputFile  id="file-input" name="file-input" onChange={ this.handleChangeFile } />
+                 </CCol>
+               </CFormGroup>}
+        </CCardFooter>
+      </CCard>
+      }
+
+      {
+      <CCard>
+
+        <CCardHeader>
+         <h2>Database</h2>
+        </CCardHeader>
+
+        <CCardBody className="text-center">
+            <div>
+                <CIcon
+                  className="c-sidebar-brand-full"
+                  img src="/images/database icon.png"
+                  height={250} />
+
+                     <br />
+            </div>
+        </CCardBody>
+
+        <CCardFooter>
+            {<CFormGroup row>
+                 <CCol >
+                    <CInputFile  id="file-input" name="file-input" onChange={ this.handleChangeFile } />
+                 </CCol>
+            </CFormGroup>}
+        </CCardFooter>
+
+      </CCard>
+      }
+
+    </CCardGroup>
+  }
+
+     {
+      <CCard>
+
+        <CCardBody className="text-center">
+           <div>
+             {<CForm onSubmit={this.handleSubmit}  encType="multipart/form-data" className="form-horizontal">
+              <CButton   type="submit" size="sm" color="primary"><CIcon name="cil-Spreadsheet" /> Submit</CButton>
+              </CForm>}
+           </div>
+        </CCardBody>
+
+      </CCard>
+      }
 
  {<CModal
         show={this.state.showModal}
@@ -152,166 +227,6 @@ handleChangeFile(event) {
           >Cancel</CButton>
         </CModalFooter>
  </CModal>}
-
-      {<CRow>
-        {<CCol xs="12" md="8">
-          {<CCard>
-
-            <CCardHeader>
-              <h2>Settings Analyzer</h2>
-            </CCardHeader>
-
-            {<CCardBody>
-              {<CForm onSubmit={this.handleSubmit}  encType="multipart/form-data" className="form-horizontal">
-
-                {<CFormGroup row>
-                  <CCol md="3">
-                    <CLabel htmlFor="text">Substation Name</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9" size="lg">
-                    <CInput type="text" />
-                  </CCol>
-                </CFormGroup>}
-
-                {/*-----------------------------------------------------------------*/}
-
-                {<CFormGroup row>
-                  <CCol md="3">
-                    <CLabel htmlFor="text">Bay Number</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9" size="lg">
-                    <CInput type="text" />
-                  </CCol>
-                </CFormGroup>}
-
-                {/*-----------------------------------------------------------------*/}
-
-                {<CFormGroup row>
-
-                  <CCol md="3">
-                    <CLabel htmlFor="select">Manufacturer</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CSelect value={this.state.value} onChange={this.handleChange} custom name="select" id="select">
-                      <option value="0">----</option>
-                      <option value="1">SEL</option>
-                      <option value="2">ABB</option>
-                      <option value="3">GE</option>
-                      <option value="4">Siemens</option>
-                      <option value="5">ZIV</option>
-                      <option value="6">Schneider</option>
-                    </CSelect>
-                  </CCol>
-                </CFormGroup>}
-
-                {/*-----------------------------------------------------------------*/}
-
-                {<CFormGroup row>
-                  <CCol md="3">
-                    <CLabel htmlFor="selectms">Scheme Type</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9" size="ms">
-                    <CSelect custom size="ms" name="selectms" id="selectms">
-                      <option value="0">----</option>
-                      <option value="1">OPDS</option>
-                      <option value="2">Non-OPDS</option>
-                    </CSelect>
-                  </CCol>
-                </CFormGroup>}
-
-                {/*-----------------------------------------------------------------*/}
-
-                {<CFormGroup row>
-                  <CCol md="3">
-                    <CLabel htmlFor="selectms">Serial No. List</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9" size="ms">
-                    <CSelect custom size="ms" name="selectms" id="selectms">
-                      <option value="0">----</option>
-                    </CSelect>
-                  </CCol>
-                </CFormGroup>}
-                {/*-----------------------------------------------------------------*/}
-
-                {<CFormGroup row>
-                  <CCol md="3">
-                    <CLabel>Function</CLabel>
-                  </CCol>
-                  <CCol md="9">
-                        <CFormGroup variant="custom-checkbox" inline>
-                          <CInputCheckbox
-                           custom
-                           id="inline-checkbox1"
-                           name="inline-checkbox1"
-                           value="option1"
-                           />
-                          <CLabel variant="custom-checkbox" htmlFor="inline-checkbox1">Distance</CLabel>
-                        </CFormGroup>
-
-                         <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox2" name="inline-checkbox2" value="option2" />
-                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Differential</CLabel>
-                         </CFormGroup>
-
-                         <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox3" name="inline-checkbox3" value="option3" />
-                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Over Current</CLabel>
-                         </CFormGroup>
-
-                         <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox4" name="inline-checkbox4" value="option4" />
-                            <CLabel variant="custom-checkbox" htmlFor="inline-checkbox4">Multifunction</CLabel>
-                         </CFormGroup>
-                  </CCol>
-                </CFormGroup>}
-
-                {/*-----------------------------------------------------------------*/}
-
-                {<CFormGroup row>
-                     <CLabel col md="3" htmlFor="file-input">Setting File (Localy)</CLabel>
-                       <CCol xs="12" md="9">
-                          <CInputFile id="file-input" name="file-input" onChange={ this.handleChangeFile } />
-                       </CCol>
-                </CFormGroup>}
-
-                {/*-----------------------------------------------------------------*/}
-
-                {<CFormGroup row>
-                     <CLabel col md="3" htmlFor="file-input">Setting File (Remotely)</CLabel>
-                       <CCol xs="12" md="9">
-                          <CButton size="sm" color="info" onClick={this.uploadsettings}>
-                          <CIcon name="cil-CloudDownload"/> Collect Settings</CButton>
-                       </CCol>
-                </CFormGroup>}
-
-                {/*-----------------------------------------------------------------*/}
-
-                <CButton   type="submit" size="sm" color="primary"><CIcon name="cil-Spreadsheet" /> Submit</CButton>
-              </CForm>}
-
-                {/*-----------------------------------------------------------------*/}
-
-            </CCardBody>}
-
-                {/*-----------------------------------------------------------------*/}
-
-               {<CCardFooter>
-                 {/* here is the footer of the entire box.
-                  <CButton onClick={this.handleClick}  type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
-                   <CButton type="reset" size="sm" color="danger"><CIcon name="cil-ban" /> Reset</CButton> */}
-               </CCardFooter>}
-
-                {/*-----------------------------------------------------------------*/}
-
-          </CCard>}
-
-                {/*-----------------------------------------------------------------*/}
-
-        </CCol>}
-
-                {/*-----------------------------------------------------------------*/}
-
-      </CRow>}
 
     </>
   )

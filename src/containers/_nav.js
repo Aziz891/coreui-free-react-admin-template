@@ -9,15 +9,17 @@ export default [
        //text: 'Coomming Soon',
      }
    },
+   {
+     _tag: 'CSidebarNavItem',
+     name: 'Collected Data',
+     to: '/collected_data',
+     icon: 'cil-cloud-download',
+   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Settings Analyzer',
     to: '/setting',
     icon: 'cil-IndentDecrease',
-    badge: {
-      color: 'info',
-      // text: 'NEW',
-    },
   },
 //  {
 //     _tag: 'CSidebarNavItem',
@@ -268,13 +270,13 @@ export default [
      _children: [
        {
          _tag: 'CSidebarNavItem',
-         name: 'Collected Data',
-         to: '/collected_data',
+         name: 'Alarms',
+         to: '/alarms',
        },
        {
          _tag: 'CSidebarNavItem',
-         name: 'Alarms',
-         to: '/alarms',
+         name: 'Settings Info',
+         to: '/settings_info',
        },
 //       {
 //         _tag: 'CSidebarNavItem',

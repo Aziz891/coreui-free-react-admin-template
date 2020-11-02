@@ -2,6 +2,7 @@ import React from 'react';
 
 const Toaster = React.lazy(() => import('./views/notifications/toaster/Toaster'));
 const Tables = React.lazy(() => import('./views/base/tables/Tables'));
+const Settings_Info = React.lazy(() => import('./views/pages/settings_info/settings_info'));
 const Setting = React.lazy(() => import('./views/setting_components/form1'));
 const Setting2 = React.lazy(() => import('./views/setting_components/setting_table'));
 
@@ -51,6 +52,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/dashboard2', name: 'Dashboard2', component: Dashboard2 },
   { path: '/setting', name: 'setting', component: Setting },
+  { path: '/settings_info', name: 'settings_info', component: Settings_Info },
   { path: '/alarms', name: 'alarms', component: Alarms },
   { path: '/collected_data', name: 'collected_data', component: Collected_Data },
   { path: '/outages', name: 'outages', component: Outages },
