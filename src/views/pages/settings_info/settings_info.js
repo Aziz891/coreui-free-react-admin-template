@@ -52,14 +52,15 @@ constructor(props) {
     this.state = {value: '', file: '', buttonClicked: false, showModal: false, redirect:false};
 
     this.uploadsettings = this.uploadsettings.bind(this);
-
   }
+
   uploadsettings() {
       alert('Upload settings from Site <o>');}
 
   handleChange(event) {
     this.setState({value: event.target.value});
   }
+
 
   render() {
 
@@ -107,7 +108,7 @@ constructor(props) {
                     <CLabel htmlFor="select">Manufacturer</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CSelect value={this.state.value} onChange={this.handleChange} custom name="select" id="select">
+                    <CSelect custom name="select" id="select">
                       <option value="0">----</option>
                       <option value="1">SEL</option>
                       <option value="2">ABB</option>
