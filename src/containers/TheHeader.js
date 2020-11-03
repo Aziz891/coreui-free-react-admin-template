@@ -66,7 +66,13 @@ const TheHeader = () => {
       </CHeaderNav>
 
       <CHeaderNav className="px-3">
-         <TheHeaderDropdownNotif/>
+        <CIcon
+          className="c-sidebar-brand-full"
+          img src="/images/IEI.png"
+          //src="https://www.se.com.sa/style%20library/sec/Images/Logo_EN.png"
+          height={50}
+         />
+        {/*<TheHeaderDropdownNotif/>*/}
         {/*<TheHeaderDropdownTasks/>*/}
         {/*<TheHeaderDropdownMssg/>*/}
         {/* <TheHeaderDropdown/> */}
