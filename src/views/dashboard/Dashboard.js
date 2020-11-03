@@ -40,7 +40,17 @@ const Dashboard = () => {
       <CCard>
 
         <CCardHeader>
+         <CRow>
+         <CCol>
          <h2>Collected Data</h2>
+         </CCol>
+
+         <CCol>
+         <CButton to="/collected_data" color="info" className="float-right">
+            more
+         </CButton>
+         </CCol>
+         </CRow>
         </CCardHeader>
 
         <CCardBody>
@@ -74,7 +84,17 @@ const Dashboard = () => {
       <CCard>
 
         <CCardHeader>
+         <CRow>
+         <CCol>
          <h2>Manufacturers</h2>
+         </CCol>
+
+         <CCol>
+         <CButton to="/collected_data" color="info" className="float-right">
+            more
+         </CButton>
+         </CCol>
+         </CRow>
         </CCardHeader>
 
         <CCardBody>
@@ -112,6 +132,20 @@ const Dashboard = () => {
 
      {
       <CCard>
+
+        <CCardHeader>
+         <CRow>
+         <CCol>
+         <h2>Alarms</h2>
+         </CCol>
+
+         <CCol>
+         <CButton to="/alarms" color="info" className="float-right">
+            more
+         </CButton>
+         </CCol>
+         </CRow>
+        </CCardHeader>
 
         <CCardBody>
             <WidgetsDropdown />

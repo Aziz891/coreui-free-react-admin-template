@@ -1,50 +1,59 @@
-import React, { lazy } from 'react'
+import React from 'react'
 import {
-   CButton,
-   CCard,
-   CCardBody,
-   CCardGroup,
-   CCol,
-   CContainer,
-   CForm,
-   CInput,
-   CInputGroup,
-   CInputGroupPrepend,
-   CInputGroupText,
-   CRow,
-   CCardHeader,
+  CBadge,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CDataTable,
+  CRow
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 
+import CIcon from '@coreui/icons-react'
+import usersData from '../../users/UsersData'
+
+const getBadge = status => {
+  switch (status) {
+    case 'Active': return 'success'
+    case 'Inactive': return 'secondary'
+    case 'Pending': return 'warning'
+    case 'Banned': return 'danger'
+    default: return 'primary'
+  }
+}
+const fields = ['name','registered', 'role', 'status']
 
 const Alarms = () => {
   return (
     <>
+       <CCol xs="12" md="9">
+          <CCard>
+            <CCardHeader>
+               <h2>Alarms</h2>
+            </CCardHeader>
 
-    <CCardHeader >
-       <h2 className="text-center">Alarms</h2>
-    </CCardHeader>
+            <CCardBody>
+             <CDataTable
+              items={usersData}
+              fields={fields}
+              striped
+              itemsPerPage={5}
+              pagination
+              scopedSlots = {{
+                'status':
+                  (item)=>(
+                    <td>
+                      <CBadge color={getBadge(item.status)}>
+                        {item.status}
+                      </CBadge>
+                    </td>
+                  )
 
-     <br/>
-     <br/>
-
-
-    <div className="c-default-layou flex-row ">
-      <CContainer>
-        <CRow className="justify-content-center">
-                  <div>
-
-                    <CIcon
-                      className="c-sidebar-brand-full "
-                      img src="/images/intro.gif"
-                      height={415}
-                    />
-
-                  </div>
-        </CRow>
-      </CContainer>
-    </div>
-
+              }}
+            />
+            </CCardBody>
+          </CCard>
+       </CCol>
     </>
   )
 }

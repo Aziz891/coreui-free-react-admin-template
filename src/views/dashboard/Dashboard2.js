@@ -113,6 +113,10 @@ const Dashboard2 = () => {
      {
       <CCard>
 
+        <CCardHeader>
+         <h2>Alarms</h2>
+        </CCardHeader>
+
         <CCardBody>
             <WidgetsDropdown />
         </CCardBody>
