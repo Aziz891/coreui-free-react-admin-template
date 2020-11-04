@@ -10,6 +10,8 @@ const loading = (
 
 // Containers
 const TheLayout = React.lazy(() => import('./containers/TheLayout'));
+const TheLayout2 = React.lazy(() => import('./containers/TheLayout2'));
+const TheLayout3 = React.lazy(() => import('./containers/TheLayout3'));
 
 // Pages
 const Login = React.lazy(() => import('./views/pages/login/Login'));
@@ -28,6 +30,8 @@ class App extends Component {
               <Route exact path="/register" name="Register Page" render={props => <Register {...props}/>} />
               <Route exact path="/404" name="Page 404" render={props => <Page404 {...props}/>} />
               <Route exact path="/500" name="Page 500" render={props => <Page500 {...props}/>} /> */}
+              <Route exact path="/dashboard2" name="Dashboared" render={props => <TheLayout2 {...props}/>} />
+              <Route exact path="/project_info" name="Project Info" render={props => <TheLayout3 {...props}/>} />
               <Route path="/" name="Home" render={props => <TheLayout {...props}/>} />
             </Switch>
           </React.Suspense>
