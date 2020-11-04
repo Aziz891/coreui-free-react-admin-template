@@ -184,7 +184,7 @@ constructor(props) {
                 {/*-----------------------------------------------------------------*/}
 
                    <CButton size="sm" color="info" onClick={this.uploadsettings}>
-                   <CIcon name="cil-CloudDownload"/> Collect Settings</CButton>
+                   <CIcon name="cil-CloudDownload"/>Collect Settings</CButton>
 
                 {/*-----------------------------------------------------------------*/}
 

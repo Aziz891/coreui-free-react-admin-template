@@ -258,26 +258,26 @@ export default [
 //   {
 //     _tag: 'CSidebarNavDivider'
 //   },
-   {
-     _tag: 'CSidebarNavTitle',
-     _children: ['Extras'],
-   },
-   {
-     _tag: 'CSidebarNavDropdown',
-     name: 'Pages',
-     route: '/pages',
-     icon: 'cil-star',
-     _children: [
-       {
-         _tag: 'CSidebarNavItem',
-         name: 'Alarms',
-         to: '/alarms',
-       },
-       {
-         _tag: 'CSidebarNavItem',
-         name: 'Settings Info',
-         to: '/settings_info',
-       },
+//   {
+//     _tag: 'CSidebarNavTitle',
+//     _children: ['Extras'],
+//   },
+//   {
+//     _tag: 'CSidebarNavDropdown',
+//     name: 'Pages',
+//     route: '/pages',
+//     icon: 'cil-star',
+//     _children: [
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Alarms',
+//         to: '/alarms',
+//       },
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Settings Info',
+//         to: '/settings_info',
+//       },
 //       {
 //         _tag: 'CSidebarNavItem',
 //         name: 'Outages',
@@ -298,8 +298,8 @@ export default [
 //         name: 'Error 500',
 //         to: '/500',
 //       },
-     ],
-   },
+//     ],
+//   },
 //   {
 //     _tag: 'CSidebarNavItem',
 //     name: 'Disabled',

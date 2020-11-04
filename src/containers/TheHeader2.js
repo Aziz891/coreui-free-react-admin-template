@@ -8,6 +8,7 @@ import {
   CHeaderNavItem,
   CHeaderNavLink,
   CSubheader,
+  CButton,
   CBreadcrumbRouter,
   CLink
 } from '@coreui/react'
@@ -50,7 +51,9 @@ const TheHeader2 = () => {
 
       <CHeaderNav className="d-md-down-none mr-auto">
         <CHeaderNavItem className="px-3">
-          <CHeaderNavLink to="/project_info"> <b>Login Page</b> </CHeaderNavLink>
+            <CButton to="/project_info" color="info" className="float-right">
+               Login
+            </CButton>
         </CHeaderNavItem>
       </CHeaderNav>
 
