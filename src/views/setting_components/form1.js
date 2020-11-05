@@ -87,7 +87,6 @@ handleChangeFile(event) {
     form.append('my_field', this.state.value);
     form.append('file', this.state.file);
 
-
       axios( { method: 'post'  , url: `http://127.0.0.1:8000/faults/setting_check/`, data: form
       , headers: { }
 
@@ -102,10 +101,8 @@ handleChangeFile(event) {
 
 
     })
-
-
-
   }
+
   handleClick(event){console.log('clicked')}
   handleredirect(){
     this.setState({redirect: true});

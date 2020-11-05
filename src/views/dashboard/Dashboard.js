@@ -11,7 +11,12 @@ import {
   CCol,
   CProgress,
   CRow,
-  CCallout
+  CCallout,
+  CModal,
+  CModalBody,
+  CModalHeader,
+  CModalFooter,
+  CModalTitle
 } from '@coreui/react'
 
 import {
@@ -45,7 +50,7 @@ const Dashboard = () => {
          </CCol>
 
          <CCol>
-         <CButton to="/collected_data" color="info" className="float-right">
+         <CButton to="/collected_data" variant="outline" color="dark" className="float-right">
             more
          </CButton>
          </CCol>
@@ -89,7 +94,7 @@ const Dashboard = () => {
          </CCol>
 
          <CCol>
-         <CButton to="/collected_data" color="info" className="float-right">
+         <CButton to="/collected_data" variant="outline" color="dark" className="float-right">
             more
          </CButton>
          </CCol>
@@ -106,7 +111,7 @@ const Dashboard = () => {
                           '#E46651',
                           '#00D8FF',
                           '#DD1B16',
-                          '#'
+                          '#636f83'
                         ],
                         data: [60, 15, 25, 10, 30]
                       }
@@ -139,7 +144,7 @@ const Dashboard = () => {
          </CCol>
 
          <CCol>
-         <CButton to="/alarms" color="info" className="float-right">
+         <CButton  to="/alarms" variant="outline" color="dark"  className="float-right">
             more
          </CButton>
          </CCol>
@@ -152,6 +157,8 @@ const Dashboard = () => {
 
       </CCard>
       }
+
+
 
 </>
   )

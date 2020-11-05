@@ -52,7 +52,7 @@ const TheHeader2 = () => {
       <CHeaderNav className="d-md-down-none mr-auto">
         <CHeaderNavItem className="px-3">
             <CButton to="/project_info" color="info" className="float-right">
-               Login
+               Login Page
             </CButton>
         </CHeaderNavItem>
       </CHeaderNav>

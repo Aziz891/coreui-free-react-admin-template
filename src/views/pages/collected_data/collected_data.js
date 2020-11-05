@@ -24,7 +24,7 @@ const Collected_Data= () => {
             </CCol>
 
             <CCol sm="7" className="d-none d-md-block">
-              <CButton to="/settings_info" color="primary" className="float-right" active tabIndex={-1}>
+              <CButton to="/settings_info" color="success" className="float-right" active tabIndex={-1}>
                Add new
               </CButton>
             </CCol>
@@ -107,7 +107,7 @@ const Collected_Data= () => {
                      <td>
                       <CRow>
                         <CCol xs="3">
-                          <CButton to="" color="primary" className="px-1">More</CButton>
+                          <CButton to="" variant="outline" color="primary" className="px-1">More</CButton>
                         </CCol>
 
                       </CRow>
@@ -158,7 +158,7 @@ const Collected_Data= () => {
                      <td>
                       <CRow>
                         <CCol xs="3">
-                          <CButton to="" color="primary" className="px-1">More</CButton>
+                          <CButton to="" variant="outline" color="primary" className="px-1">More</CButton>
                         </CCol>
 
                       </CRow>

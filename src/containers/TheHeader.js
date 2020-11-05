@@ -38,7 +38,9 @@ const TheHeader = () => {
     dispatch({type: 'set', sidebarShow: val})
   }
 
+
   return (
+
     <CHeader withSubheader>
       <CToggler
         inHeader
@@ -84,15 +86,8 @@ const TheHeader = () => {
           //src="https://www.se.com.sa/style%20library/sec/Images/Logo_EN.png"
           height={50}
          />
-        {/*<TheHeaderDropdownNotif/>*/}
-        {/*<TheHeaderDropdownTasks/>*/}
-        {/*<TheHeaderDropdownMssg/>*/}
-        {/* <TheHeaderDropdown/> */}
       </CHeaderNav>
-
-
     </CHeader>
   )
 }
-
 export default TheHeader
