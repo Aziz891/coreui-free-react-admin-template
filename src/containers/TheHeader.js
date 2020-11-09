@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   CHeader,
@@ -10,6 +10,11 @@ import {
   CSubheader,
   CButton,
   CBreadcrumbRouter,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
   CLink
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
@@ -27,6 +32,7 @@ import {
 const TheHeader = () => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector(state => state.sidebarShow)
+  const [logout, setLogout] = useState(false)
 
   const toggleSidebar = () => {
     const val = [true, 'responsive'].includes(sidebarShow) ? false : 'responsive'
@@ -74,9 +80,28 @@ const TheHeader = () => {
 
 
       <CHeaderNav className="px-3">
-            <CButton to="/project_info" color="danger" className="float-right">
-               Logout
-            </CButton>
+
+            <CButton color="danger" onClick={() => setLogout(!logout)} className="mr-1">Logout</CButton>
+
+            <CModal
+              show={logout}
+              onClose={() => setLogout(!logout)}
+              color="danger"
+            >
+              <CModalHeader closeButton>
+                <CModalTitle>Alert !</CModalTitle>
+              </CModalHeader>
+              <CModalBody>
+              <br/>
+                <h3>Are you sure you want to logout?</h3>
+              <br/>
+              </CModalBody>
+              <CModalFooter>
+                <CButton to="/project_info" color="danger" onClick={() => setLogout(!logout)}>Yes</CButton>{''}
+                <CButton color="secondary" onClick={() => setLogout(!logout)}>Cancel</CButton>
+              </CModalFooter>
+            </CModal>
+
        </CHeaderNav>
 
       <CHeaderNav className="px-3">

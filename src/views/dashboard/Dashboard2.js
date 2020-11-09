@@ -83,15 +83,16 @@ const Dashboard2 = () => {
                       {
                         backgroundColor: [
                           '#41B883',
-                          '#E46651',
-                          '#00D8FF',
                           '#DD1B16',
-                          '#'
+                          '#00D8FF',
+                          '#ffd700',
+                          '#737ca1',
+                          '#ca226b'
                         ],
-                        data: [60, 15, 25, 10, 30]
+                        data: [55, 15, 25, 5, 10, 30]
                       }
                     ]}
-                    labels={['SEL', 'Siemens', 'ABB', 'GE', 'ZIV']}
+                    labels={['SEL', 'Siemens', 'ABB', 'Schneider', 'GE', 'ZIV']}
                     options={{
                       tooltips: {
                         enabled: true
