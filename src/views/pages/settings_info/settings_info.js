@@ -49,17 +49,55 @@ class Settings_Info extends React.Component {
 constructor(props) {
     super(props);
     this.tableData = {};
-    this.state = {value: '', file: '', buttonClicked: false, showModal: false, redirect:false};
+    this.state = {value: '', file: '', buttonClicked: false, showModal: false, redirect:false, formData: null};
 
     this.uploadsettings = this.uploadsettings.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const formData_ = this.state.formData
+    console.log('formmmmm', formData_)
+    console.log(this.state.formData)
+    const FormData = require('form-data');
+    const form = new FormData();
+    for ( var key in formData_ ) {
+      form.append(key, formData_[key]);
+  }
+    // form.append('my_field', this.state.value);
+    // form.append('file', this.state.file);
+
+
+      axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting/`, data: form
+      , headers: { }
+
+    })
+    .then(res => {
+      console.log(res);
+      
+
+    })
+
+
+
+  }
+
+
+
+handleOnChange = (e) => {
+  const { value, name } = e.target
+  console.log(name)
+  this.setState(prevState => ({
+    formData: {                   // object that we want to update
+        ...prevState.formData,    // keep all other key-value pairs
+        [name]: value       // update the value of specific key
+    }
+}))
+}
   uploadsettings() {
       alert('Upload settings from Site <o>');}
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
 
 
   render() {
@@ -85,22 +123,20 @@ constructor(props) {
                     <CLabel htmlFor="text">Substation Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9" size="lg">
-                    <CInput type="text" />
+                    <CInput name="subsation" type="text" onChange={this.handleOnChange} />
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="text">Bay Number</CLabel>
                   </CCol>
                   <CCol xs="12" md="9" size="lg">
-                    <CInput type="text" />
+                    <CInput type="text" name="bay_number"  onChange={this.handleOnChange} />
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
 
@@ -108,7 +144,7 @@ constructor(props) {
                     <CLabel htmlFor="select">Manufacturer</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
+                    <CSelect custom name="manufacturer"  onChange={this.handleOnChange}>
                       <option value="0">----</option>
                       <option value="1">SEL</option>
                       <option value="2">ABB</option>
@@ -120,14 +156,13 @@ constructor(props) {
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="selectms">Scheme Type</CLabel>
                   </CCol>
                   <CCol xs="12" md="9" size="ms">
-                    <CSelect custom size="ms" name="selectms" id="selectms">
+                    <CSelect custom size="ms" name="scheme_type" onChange={this.handleOnChange} >
                       <option value="0">----</option>
                       <option value="1">OPDS</option>
                       <option value="2">Non-OPDS</option>
@@ -135,19 +170,17 @@ constructor(props) {
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="selectms">Serial No. List</CLabel>
                   </CCol>
                   <CCol xs="12" md="9" size="ms">
-                    <CSelect custom size="ms" name="selectms" id="selectms">
+                    <CSelect custom size="ms" name="serial_number" onChange={this.handleOnChange}>
                       <option value="0">----</option>
                     </CSelect>
                   </CCol>
                 </CFormGroup>}
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
                   <CCol md="3">
@@ -161,16 +194,19 @@ constructor(props) {
                            name="inline-checkbox1"
                            value="option1"
                            />
-                          <CLabel variant="custom-checkbox" htmlFor="inline-checkbox1">Distance</CLabel>
+                          <CLabel variant="custom-checkbox"
+                           htmlFor="inline-checkbox1">Distance</CLabel>
                         </CFormGroup>
 
                          <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox2" name="inline-checkbox2" value="option2" />
+                            <CInputCheckbox custom id="inline-checkbox2" 
+                            name="inline-checkbox2" value="option2" />
                             <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Differential</CLabel>
                          </CFormGroup>
 
                          <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox3" name="inline-checkbox3" value="option3" />
+                            <CInputCheckbox custom id="inline-checkbox3"
+                             name="inline-checkbox3" value="option3" />
                             <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Over Current</CLabel>
                          </CFormGroup>
 
@@ -181,16 +217,14 @@ constructor(props) {
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
-                   <CButton size="sm" color="info" onClick={this.uploadsettings}>
+                   <CButton size="sm" color="info" type="submit" >      
+                   {/* onClick={this.uploadsettings}> */}
                    <CIcon name="cil-CloudDownload"/> Collect Settings</CButton>
 
-                {/*-----------------------------------------------------------------*/}
 
                    <CButton size="sm" color="info" to="/collected_data" className="float-right">Cancel</CButton>
 
-                {/*-----------------------------------------------------------------*/}
 
               </CForm>}
             </CCardBody>}

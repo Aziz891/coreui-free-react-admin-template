@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import {
    CContainer,
    CRow,
@@ -7,12 +7,45 @@ import {
    CCardBody,
    CCardFooter,
    CCol,
-   CButton
+   CButton, 
 } from '@coreui/react'
+import {
+  CBadge,
+  CDataTable,
+} from '@coreui/react'
+import axios from 'axios'
 import CIcon from '@coreui/icons-react'
-
+let fields = [
+'id'
+,'substation'
+,'bay_number'
+,'manufacturer'
+,'scheme_type'
+,'serial_number'
+,'function_type'
+,'creation_date',
+'created_by'
+]
 
 const Collected_Data= () => {
+  const  [data, setData] = useState();
+  useEffect(() => {
+
+    axios.get('http://localhost:8000/dashboard/setting/')
+    .then(function (response) {
+      console.log(response);
+      setData(response.data)
+      
+
+   })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+
+
+
+  } , [])
   return (
     <>
 
@@ -32,10 +65,43 @@ const Collected_Data= () => {
         </CCardBody>
       </CCard>
 
-<CRow>
-        <CCol>
+
+<CCard>
+              <CCardHeader>
+                Combined All Table
+              </CCardHeader>
+              <CCardBody>
+              <CDataTable
+                items={data}
+                fields={fields}
+                hover
+                striped
+                bordered
+                size="sm"
+                itemsPerPage={30}
+                onRowClick={(e) => console.log('woking', e) }
+                pagination
+                // scopedSlots = {{
+                //   'Flags':
+                //     (item)=>(
+                //       <td>
+                //         <CBadge color={getBadge(item.Flags)}>
+                //           {item.Flags}
+                //         </CBadge>
+                //       </td>
+                //     )
+                // }}
+              />
+              </CCardBody>
+            </CCard>
+
+
+
+        {/* <CCol>
           <CCard>
             <CCardBody>
+
+              
 
               <table className="table table-hover table-outline mb-0 d-none d-sm-table">
                 <thead className="thead-light">
@@ -63,7 +129,6 @@ const Collected_Data= () => {
 
                 <tbody>
 
-                  {/*----------------------------------------------------------------------------*/}
 
                   <tr>
                     <td>
@@ -114,7 +179,6 @@ const Collected_Data= () => {
                      </td>
                   </tr>
 
-                  {/*----------------------------------------------------------------------------*/}
 
                   <tr>
                     <td>
@@ -165,18 +229,15 @@ const Collected_Data= () => {
                      </td>
                   </tr>
 
-                  {/*----------------------------------------------------------------------------*/}
 
 
-                  {/*----------------------------------------------------------------------------*/}
 
                 </tbody>
               </table>
 
             </CCardBody>
           </CCard>
-        </CCol>
-      </CRow>
+        </CCol> */}
 
 
 

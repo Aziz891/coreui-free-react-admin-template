@@ -1,4 +1,5 @@
-import React, { lazy } from 'react'
+import React, { lazy, useCallback, useState } from 'react'
+import axios from 'axios'
 import {
    CButton,
    CCard,
@@ -15,9 +16,43 @@ import {
    CCardHeader,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import { useHistory } from "react-router-dom";
 
 
 const Project = () => {
+  const [user, setUser] = useState("")
+  const [passwd, setpasswd] = useState("")
+  const history = useHistory();
+
+  const handleRequest = (user, passwd) => {
+
+    axios.post('http://localhost:8000/dashboard/token-auth/', {
+      username: user,
+      password: passwd
+    })
+    .then(function (response) {
+      console.log(response);
+      localStorage.setItem('user', JSON.stringify( response.data))
+      history.push("/dashboard2")
+      
+
+   })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+
+  }
+
+  const handleSubmit = useCallback( (e) => {
+    e.preventDefault()
+    console.log(user, passwd)
+    handleRequest(user, passwd)
+
+
+  }
+  )
+
   return (
     <>
 
@@ -29,7 +64,7 @@ const Project = () => {
               <CCard className="p-4">
                 <CCardBody>
 
-                  <CForm>
+                  <CForm  onSubmit={ (e) => handleSubmit(e) }>
                     <h1>Login</h1>
                     <p className="text-muted">Sign In to your account</p>
                     <CInputGroup className="mb-3">
@@ -38,7 +73,7 @@ const Project = () => {
                           <CIcon name="cil-user" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="text" placeholder="Username" autoComplete="username" />
+                      <CInput type="text" placeholder="Username" autoComplete="username" onChange={ (e) => setUser(e.target.value) } />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupPrepend>
@@ -46,14 +81,14 @@ const Project = () => {
                           <CIcon name="cil-lock-locked" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="password" placeholder="Password" autoComplete="current-password" />
+                      <CInput type="password" placeholder="Password" autoComplete="current-password" onChange={ (e) => setpasswd(e.target.value) } />
                     </CInputGroup>
 
                     <br/>
 
                     <CRow>
                       <CCol xs="6">
-                        <CButton to="/dashboard" color="primary" className="px-4">Login</CButton>
+                        <CButton type="submit" color="primary" className="px-4">Login</CButton>
                       </CCol>
                       <CCol xs="6" className="text-right">
                         <CButton color="link" className="px-0">Forgot password?</CButton>

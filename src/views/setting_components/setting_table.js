@@ -46,6 +46,7 @@ class Setting_Table extends Component {
               <CCardBody>
               <CDataTable
                 items={this.props.location.state.data.data}
+               
                 fields={fields}
                 hover
                 striped
