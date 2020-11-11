@@ -89,7 +89,8 @@ const TheHeader = () => {
               color="danger"
             >
               <CModalHeader closeButton>
-                <CModalTitle>Alert !</CModalTitle>
+                <CModalTitle> Alert</CModalTitle>
+                <CIcon width={24} name="cil-bell"/>
               </CModalHeader>
               <CModalBody>
               <br/>
