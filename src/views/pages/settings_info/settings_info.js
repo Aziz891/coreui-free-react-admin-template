@@ -123,7 +123,7 @@ handleOnChange = (e) => {
                     <CLabel htmlFor="text">Substation Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9" size="lg">
-                    <CInput name="subsation" type="text" onChange={this.handleOnChange} />
+                    <CInput name="substation" type="text" onChange={this.handleOnChange} />
                   </CCol>
                 </CFormGroup>}
 
