@@ -15,6 +15,10 @@ import {
   CModalFooter,
   CModalHeader,
   CModalTitle,
+  CDropdown,
+  CDropdownToggle,
+  CDropdownMenu,
+  CDropdownItem,
   CLink
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
@@ -80,8 +84,19 @@ const TheHeader = () => {
 
 
       <CHeaderNav className="px-3">
+           <CDropdown>
+             <CDropdownToggle color="black">
+               <CIcon name="cil-user"/>
+             </CDropdownToggle>
+             <CDropdownMenu className="pt-0" placement="bottom-end">
+              <CDropdownItem disabled>Rakan A. Hakam</CDropdownItem>
+              <CDropdownItem disabled>103739</CDropdownItem>
+              <CDropdownItem disabled>-------------</CDropdownItem>
+              <CDropdownItem onClick={() => setLogout(!logout)} className="mr-1">Logout</CDropdownItem>
+             </CDropdownMenu>
+           </CDropdown>
 
-            <CButton color="danger" onClick={() => setLogout(!logout)} className="mr-1">Logout</CButton>
+
 
             <CModal
               show={logout}
@@ -89,8 +104,7 @@ const TheHeader = () => {
               color="danger"
             >
               <CModalHeader closeButton>
-                <CModalTitle> Alert</CModalTitle>
-                <CIcon width={24} name="cil-bell"/>
+                <CModalTitle> Alert !</CModalTitle>
               </CModalHeader>
               <CModalBody>
               <br/>
