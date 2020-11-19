@@ -86,10 +86,8 @@ handleChangeFile(event) {
     const form = new FormData();
     form.append('my_field', this.state.value);
     form.append('file', this.state.file);
-
-      axios( { method: 'post'  , url: `http://127.0.0.1:8000/faults/setting_check/`, data: form
+      axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting_check/`, data: form
       , headers: { }
-
     })
     .then(res => {
       console.log(res);
@@ -98,15 +96,12 @@ handleChangeFile(event) {
       console.log(this.tableData)
       console.log('working');
       this.modalToggle(true)
-
-
     })
   }
 
   handleClick(event){console.log('clicked')}
   handleredirect(){
     this.setState({redirect: true});
-
   }
 
 

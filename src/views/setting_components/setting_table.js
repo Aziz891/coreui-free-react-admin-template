@@ -41,7 +41,7 @@ class Setting_Table extends Component {
           <CCol>
             <CCard>
               <CCardHeader>
-                Combined All Table
+                Settings Analyzer
               </CCardHeader>
               <CCardBody>
               <CDataTable

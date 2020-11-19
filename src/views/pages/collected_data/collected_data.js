@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import {
    CContainer,
    CRow,
@@ -7,12 +7,39 @@ import {
    CCardBody,
    CCardFooter,
    CCol,
-   CButton
+   CButton,
+   CBadge,
+   CDataTable
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import axios from 'axios'
 
+let fields = [
+'id'
+,'substation'
+,'bay_number'
+,'manufacturer'
+,'scheme_type'
+,'serial_number'
+,'function_type'
+,'creation_date',
+'created_by'
+]
 
 const Collected_Data= () => {
+  const  [data, setData] = useState();
+  useEffect(() => {
+
+    axios.get('http://localhost:8000/dashboard/setting/')
+    .then(function (response) {
+      console.log(response);
+      setData(response.data)
+   })
+    .catch(function (error) {
+      console.log(error);
+    });
+  } , [])
+
   return (
     <>
 
@@ -36,150 +63,20 @@ const Collected_Data= () => {
         <CCol>
           <CCard>
             <CCardBody>
-
-              <table className="table table-hover table-outline mb-0 d-none d-sm-table">
-                <thead className="thead-light">
-                  <tr>
-                    <th>No.</th>
-
-                    <th>User</th>
-
-                    <th>S/S</th>
-
-                    <th>Bay Number</th>
-
-                    <th>Manufacturer</th>
-
-                    <th>Relay Type</th>
-
-                    <th>Serial No.</th>
-
-                    <th>Date</th>
-
-                    <th></th>
-
-                  </tr>
-                </thead>
-
-                <tbody>
-
-                  {/*----------------------------------------------------------------------------*/}
-
-                  <tr>
-                    <td>
-                       <div>1</div>
-                       <div className="small text-muted">
-                      </div>
-                    </td>
-
-                    <td>
-                      <div>Rakan A. Hakami</div>
-                      <div className="small text-muted">
-                      </div>
-                    </td>
-
-                    <td>
-                       <div className="clearfix">
-                         <strong>KMT</strong>
-                       </div>
-                     </td>
-
-                     <td>
-                      <strong>  AD03  </strong>
-                     </td>
-
-                     <td>
-                      <strong>  SEL  </strong>
-                     </td>
-
-                     <td>
-                      <strong>  SEL-411L  </strong>
-                     </td>
-
-                     <td>
-                      <strong> SEL12457814563 </strong>
-                     </td>
-
-                     <td>
-                      <strong>11.11.2020</strong>
-                      </td>
-
-                     <td>
-                      <CRow>
-                        <CCol xs="3">
-                          <CButton to="" variant="outline" color="primary" className="px-1">More</CButton>
-                        </CCol>
-
-                      </CRow>
-                     </td>
-                  </tr>
-
-                  {/*----------------------------------------------------------------------------*/}
-
-                  <tr>
-                    <td>
-                       <div>2</div>
-                       <div className="small text-muted">
-                      </div>
-                    </td>
-
-                    <td>
-                      <div>Rakan A. Hakami</div>
-                      <div className="small text-muted">
-                      </div>
-                    </td>
-
-                    <td>
-                       <div className="clearfix">
-                         <strong>KMT</strong>
-                       </div>
-                     </td>
-
-                     <td>
-                      <strong>  AH14  </strong>
-                     </td>
-
-                     <td>
-                      <strong>  SEL  </strong>
-                     </td>
-
-                     <td>
-                      <strong>  SEL-751  </strong>
-                     </td>
-
-                     <td>
-                      <strong> SEL12457814563 </strong>
-                     </td>
-
-                     <td>
-                      <strong>11.11.2020</strong>
-                      </td>
-
-                     <td>
-                      <CRow>
-                        <CCol xs="3">
-                          <CButton to="" variant="outline" color="primary" className="px-1">More</CButton>
-                        </CCol>
-
-                      </CRow>
-                     </td>
-                  </tr>
-
-                  {/*----------------------------------------------------------------------------*/}
-
-
-                  {/*----------------------------------------------------------------------------*/}
-
-                </tbody>
-              </table>
-
+              <CDataTable
+                items={data}
+                fields={fields}
+                hover
+                striped
+                bordered
+                size="sm"
+                itemsPerPage={30}
+                onRowClick={(e) => console.log('working', e) }
+                pagination />
             </CCardBody>
           </CCard>
         </CCol>
       </CRow>
-
-
-
 
     </>
   )

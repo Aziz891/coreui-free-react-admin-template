@@ -11,27 +11,14 @@ import {
 
 import usersData from '../users/UsersData'
 
-const getBadge = Flags => {
-  switch (Flags) {
-    case 'OK': return 'success'
-    case 'Inactive': return 'secondary'
-    case 'Pending': return 'warning'
-    case 'Require Review': return 'danger'
-    default: return 'primary'
-  }
-}
-const fields = ['Name','Description', 'Value', 'Flags']
 
-class Setting_Table extends Component {
+
+const fields = ['Name','Description', 'Value']
+
+class Settings_Parameters extends Component {
   constructor(props) {
     super(props);
     this.state = {value: '', file: ''};
-
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleChangeFile = this.handleChangeFile.bind(this);
-
-
   }
 
   render() {
@@ -41,11 +28,10 @@ class Setting_Table extends Component {
           <CCol>
             <CCard>
               <CCardHeader>
-                Combined All Table
+
               </CCardHeader>
               <CCardBody>
               <CDataTable
-                items={this.props.location.state.data.data}
                 fields={fields}
                 hover
                 striped
@@ -53,16 +39,6 @@ class Setting_Table extends Component {
                 size="sm"
                 itemsPerPage={30}
                 pagination
-                scopedSlots = {{
-                  'Flags':
-                    (item)=>(
-                      <td>
-                        <CBadge color={getBadge(item.Flags)}>
-                          {item.Flags}
-                        </CBadge>
-                      </td>
-                    )
-                }}
               />
               </CCardBody>
             </CCard>
@@ -76,4 +52,4 @@ class Setting_Table extends Component {
 
 
 
-export default Setting_Table
+export default Settings_Parameters
