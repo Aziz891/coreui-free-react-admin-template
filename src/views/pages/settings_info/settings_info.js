@@ -57,6 +57,7 @@ constructor(props) {
 
   handleSubmit(event) {
     event.preventDefault();
+
     const formData_ = this.state.formData
     console.log('formmmmm', formData_)
     console.log(this.state.formData)
@@ -66,7 +67,10 @@ constructor(props) {
       form.append(key, formData_[key]);
   }
 
-
+  axios( { method: 'get'  , url: `http://192.168.4.1/hello?quer1=id`, timeout: 10000, responseType: 'document ' })
+.then(res => {
+  console.log("dattttta",res);
+})
     // form.append('my_field', this.state.value);
     // form.append('file', this.state.file);
       axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting/`, data: form

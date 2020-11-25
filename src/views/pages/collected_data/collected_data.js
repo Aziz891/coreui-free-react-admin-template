@@ -13,6 +13,7 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 let fields = [
 'id'
@@ -25,21 +26,29 @@ let fields = [
 ,'creation_date',
 'created_by'
 ]
-
 const Collected_Data= () => {
   const  [data, setData] = useState();
+  let history = useHistory()
+  
   useEffect(() => {
-
+    
     axios.get('http://localhost:8000/dashboard/setting/')
     .then(function (response) {
       console.log(response);
       setData(response.data)
-   })
+    })
     .catch(function (error) {
       console.log(error);
     });
   } , [])
+  const handleredirect = (e) => {
 
+    console.log(e)
+    
+    history.push('/Settings_Parameters');
+
+    
+}
   return (
     <>
 
@@ -71,7 +80,7 @@ const Collected_Data= () => {
                 bordered
                 size="sm"
                 itemsPerPage={30}
-                onRowClick={(e) => console.log('working', e) }
+                onRowClick={(e) => handleredirect(e) }
                 pagination />
             </CCardBody>
           </CCard>
