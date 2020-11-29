@@ -160,7 +160,7 @@ handleOnChange = (e) => {
 
                 {/*-----------------------------------------------------------------*/}
 
-                {<CFormGroup row>
+                {/*<CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="selectms">Scheme Type</CLabel>
                   </CCol>
@@ -171,7 +171,7 @@ handleOnChange = (e) => {
                       <option value="2">Non-OPDS</option>
                     </CSelect>
                   </CCol>
-                </CFormGroup>}
+                </CFormGroup>*/}
 
                 {/*-----------------------------------------------------------------*/}
 
@@ -187,7 +187,7 @@ handleOnChange = (e) => {
                 </CFormGroup>}
                 {/*-----------------------------------------------------------------*/}
 
-                {<CFormGroup row>
+                {/*<CFormGroup row>
                   <CCol md="3">
                     <CLabel>Function</CLabel>
                   </CCol>
@@ -217,7 +217,7 @@ handleOnChange = (e) => {
                             <CLabel variant="custom-checkbox" htmlFor="inline-checkbox4">Multifunction</CLabel>
                          </CFormGroup>
                   </CCol>
-                </CFormGroup>}
+                </CFormGroup>*/}
 
                 {/*-----------------------------------------------------------------*/}
 

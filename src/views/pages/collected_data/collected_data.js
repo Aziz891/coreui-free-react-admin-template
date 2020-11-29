@@ -20,18 +20,18 @@ let fields = [
 ,'substation'
 ,'bay_number'
 ,'manufacturer'
-,'scheme_type'
+,//'scheme_type'
 ,'serial_number'
-,'function_type'
+,//'function_type
 ,'creation_date',
 'created_by'
 ]
 const Collected_Data= () => {
   const  [data, setData] = useState();
   let history = useHistory()
-  
+
   useEffect(() => {
-    
+
     axios.get('http://localhost:8000/dashboard/setting/')
     .then(function (response) {
       console.log(response);
@@ -44,10 +44,10 @@ const Collected_Data= () => {
   const handleredirect = (e) => {
 
     console.log(e)
-    
+
     history.push('/Settings_Parameters');
 
-    
+
 }
   return (
     <>

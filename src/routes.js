@@ -5,6 +5,7 @@ const Tables = React.lazy(() => import('./views/base/tables/Tables'));
 const Settings_Info = React.lazy(() => import('./views/pages/settings_info/settings_info'));
 const Setting = React.lazy(() => import('./views/setting_components/form1'));
 const Settings_Parameters = React.lazy(() => import('./views/setting_components/settings_parameters'));
+const Setting_Table = React.lazy(() => import('./views/setting_components/setting_table'));
 const Setting2 = React.lazy(() => import('./views/setting_components/setting_table'));
 
 const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'));
@@ -61,6 +62,7 @@ const routes = [
   { path: '/login', name: 'Login', component: Login },
   { path: '/setting2', name: 'setting2', component: Setting2 },
   { path: '/settings_parameters', name: 'Settings Parameters', component: Settings_Parameters},
+  { path: '/setting_table', name: 'Setting Table', component: Setting_Table},
   { path: '/theme', name: 'Theme', component: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },

@@ -21,6 +21,21 @@ export default [
     to: '/setting',
     icon: 'cil-IndentDecrease',
   },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Settings Info',
+    to: '/settings_info',
+  },
+//  {
+//    _tag: 'CSidebarNavItem',
+//    name: 'Settings Flags',
+//    to: '/setting_table',
+//  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Settings Parameters',
+    to: '/settings_parameters',
+  },
 //  {
 //     _tag: 'CSidebarNavItem',
 //     name: 'Users',

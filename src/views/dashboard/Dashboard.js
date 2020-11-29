@@ -213,7 +213,7 @@ const Dashboard = () => {
     </CCardGroup>
   }
 
-     {
+     {/*
       <CCard>
 
         <CCardHeader>
@@ -235,7 +235,7 @@ const Dashboard = () => {
         </CCardBody>
 
       </CCard>
-      }
+      */}
 
 
 

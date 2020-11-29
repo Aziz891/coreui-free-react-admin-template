@@ -45,7 +45,7 @@ class Setting_Table extends Component {
               </CCardHeader>
               <CCardBody>
               <CDataTable
-                items={this.props.location.state.data.data}
+                items={this.props.location.state.data.data}  // should be disabled this line if you want click it from sidebar
                 fields={fields}
                 hover
                 striped
