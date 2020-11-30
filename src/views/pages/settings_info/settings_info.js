@@ -54,6 +54,16 @@ constructor(props) {
     this.uploadsettings = this.uploadsettings.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  modalToggle(value){
+
+    this.setState({showModal: value});
+}
+
+handleredirect(){
+  this.setState({redirect: true});
+
+}
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -68,6 +78,31 @@ constructor(props) {
     // form.append('my_field', this.state.value);
     // form.append('file', this.state.file);
 
+    axios( { method: 'get'  , url: `http://192.168.4.1/hello?query1=show`, data: form
+      , headers: { }
+
+    })
+    .then(res => {
+
+      try {
+        
+              console.log(res.data);
+              var patt = /(\S+\s+):=(\s+\S+)/g;
+              var test1 = res.data.match(patt);
+              let x = []
+              test1.forEach((i, index) => { x.push({Name: i.split(':=')[0], Value: i.split(':=')[1]})})
+              console.log(x)
+              this.tableData = x
+              this.setState({showModal: true, })
+              
+
+        
+      } catch (error) {
+        console.log(error)
+      }
+
+
+    })
 
       axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting/`, data: form
       , headers: { }
@@ -101,7 +136,13 @@ handleOnChange = (e) => {
 
 
   render() {
-
+    if (this.state.redirect) {
+      return <Redirect push to={{
+       pathname: '/setting2',
+       state: { data: this.tableData }
+     }}/>;
+     }
+     
     return (
       <>
 
@@ -231,6 +272,24 @@ handleOnChange = (e) => {
           </CCard>}
         </CCol>}
       </CRow>}
+      {<CModal
+        show={this.state.showModal}
+        onClose={() => this.modalToggle(false)}
+      >
+        <CModalHeader closeButton>
+          <CModalTitle>Analyzer</CModalTitle>
+        </CModalHeader>
+        <CModalBody>
+         The setting file has been succefully read from relay. Click continue to view settings
+        </CModalBody>
+        <CModalFooter>
+          <CButton  onClick={() => this.handleredirect()} color="primary">Continue</CButton>{' '}
+          <CButton
+            color="secondary"
+            onClick={() => this.modalToggle(false)}
+          >Cancel</CButton>
+        </CModalFooter>
+ </CModal>}
 
     </>
   )
