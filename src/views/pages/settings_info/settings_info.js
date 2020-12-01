@@ -49,15 +49,24 @@ class Settings_Info extends React.Component {
 constructor(props) {
     super(props);
     this.tableData = {};
-    this.state = {value: '', file: '', buttonClicked: false, showModal: false, redirect:false};
+    this.state = {value: '', file: '', buttonClicked: false, showModal: false, redirect:false, formData: null};
 
     this.uploadsettings = this.uploadsettings.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  modalToggle(value){
+
+    this.setState({showModal: value});
+}
+
+handleredirect(){
+  this.setState({redirect: true});
+
+}
+
 
   handleSubmit(event) {
     event.preventDefault();
-
     const formData_ = this.state.formData
     console.log('formmmmm', formData_)
     console.log(this.state.formData)
@@ -66,20 +75,52 @@ constructor(props) {
     for ( var key in formData_ ) {
       form.append(key, formData_[key]);
   }
-
-  axios( { method: 'get'  , url: `http://192.168.4.1/hello?quer1=id`, timeout: 10000, responseType: 'document ' })
-.then(res => {
-  console.log("dattttta",res);
-})
     // form.append('my_field', this.state.value);
     // form.append('file', this.state.file);
+    axios.get("http://192.168.4.1/hello?query1=acc").then(res => console.log('1', res) )
+    axios.get("http://192.168.4.1/hello?query1=OTTER").then(res => console.log('2', res) )
+
+    axios( { method: 'get'  , url: `http://192.168.4.1/hello?query1=show`, data: form
+      , headers: { }
+
+    })
+    .then(res => {
+
+      try {
+        
+              console.log(res.data);
+              var patt = /(\S+\s+):=(\s+\S+)/g;
+              var test1 = res.data.match(patt);
+              let x = []
+              test1.forEach((i, index) => { x.push({name: i.split(':=')[0], value: i.split(':=')[1]})})
+              console.log(x)
+              this.tableData = x
+              this.setState({showModal: true, })
+              
+
+        
+      } catch (error) {
+        console.log(error)
+      }
+
+
+    })
+
       axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting/`, data: form
       , headers: { }
+
     })
     .then(res => {
       console.log(res);
+      
+
     })
+
+
+
   }
+
+
 
 handleOnChange = (e) => {
   const { value, name } = e.target
@@ -91,17 +132,19 @@ handleOnChange = (e) => {
     }
 }))
 }
-
   uploadsettings() {
       alert('Upload settings from Site <o>');}
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
 
 
   render() {
-
+    if (this.state.redirect) {
+      return <Redirect push to={{
+       pathname: '/settings_parameters',
+       state: { data: {table: this.tableData, form: this.state.formData } }
+     }}/>;
+     }
+     
     return (
       <>
 
@@ -127,7 +170,6 @@ handleOnChange = (e) => {
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
                   <CCol md="3">
@@ -138,7 +180,6 @@ handleOnChange = (e) => {
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
 
@@ -158,7 +199,6 @@ handleOnChange = (e) => {
                   </CCol>
                 </CFormGroup>}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {/*<CFormGroup row>
                   <CCol md="3">
@@ -173,7 +213,6 @@ handleOnChange = (e) => {
                   </CCol>
                 </CFormGroup>*/}
 
-                {/*-----------------------------------------------------------------*/}
 
                 {<CFormGroup row>
                   <CCol md="3">
@@ -185,7 +224,6 @@ handleOnChange = (e) => {
                     </CSelect>
                   </CCol>
                 </CFormGroup>}
-                {/*-----------------------------------------------------------------*/}
 
                 {/*<CFormGroup row>
                   <CCol md="3">
@@ -199,16 +237,19 @@ handleOnChange = (e) => {
                            name="inline-checkbox1"
                            value="option1"
                            />
-                          <CLabel variant="custom-checkbox" htmlFor="inline-checkbox1">Distance</CLabel>
+                          <CLabel variant="custom-checkbox"
+                           htmlFor="inline-checkbox1">Distance</CLabel>
                         </CFormGroup>
 
                          <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox2" name="inline-checkbox2" value="option2" />
+                            <CInputCheckbox custom id="inline-checkbox2" 
+                            name="inline-checkbox2" value="option2" />
                             <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Differential</CLabel>
                          </CFormGroup>
 
                          <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox3" name="inline-checkbox3" value="option3" />
+                            <CInputCheckbox custom id="inline-checkbox3"
+                             name="inline-checkbox3" value="option3" />
                             <CLabel variant="custom-checkbox" htmlFor="inline-checkbox3">Over Current</CLabel>
                          </CFormGroup>
 
@@ -219,22 +260,38 @@ handleOnChange = (e) => {
                   </CCol>
                 </CFormGroup>*/}
 
-                {/*-----------------------------------------------------------------*/}
 
-                   <CButton size="sm" color="info" type="submit">
-                   <CIcon name="cil-CloudDownload"/>Collect Settings</CButton>
+                   <CButton size="sm" color="info" type="submit" >      
+                   {/* onClick={this.uploadsettings}> */}
+                   <CIcon name="cil-CloudDownload"/> Collect Settings</CButton>
 
-                {/*-----------------------------------------------------------------*/}
 
                    <CButton size="sm" color="info" to="/collected_data" className="float-right">Cancel</CButton>
 
-                {/*-----------------------------------------------------------------*/}
 
               </CForm>}
             </CCardBody>}
           </CCard>}
         </CCol>}
       </CRow>}
+      {<CModal
+        show={this.state.showModal}
+        onClose={() => this.modalToggle(false)}
+      >
+        <CModalHeader closeButton>
+          <CModalTitle>Analyzer</CModalTitle>
+        </CModalHeader>
+        <CModalBody>
+         The setting file has been succefully read from relay. Click continue to view settings
+        </CModalBody>
+        <CModalFooter>
+          <CButton  onClick={() => this.handleredirect()} color="primary">Continue</CButton>{' '}
+          <CButton
+            color="secondary"
+            onClick={() => this.modalToggle(false)}
+          >Cancel</CButton>
+        </CModalFooter>
+ </CModal>}
 
     </>
   )

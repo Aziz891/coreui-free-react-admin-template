@@ -1,4 +1,5 @@
-import React, { lazy, useEffect, useState } from 'react'
+import React, { lazy, useEffect, useState, Component } from 'react'
+import { Redirect } from 'react-router';
 import {
    CContainer,
    CRow,
@@ -7,48 +8,71 @@ import {
    CCardBody,
    CCardFooter,
    CCol,
-   CButton,
-   CBadge,
-   CDataTable
+   CButton, 
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+import {
+  CBadge,
+  CDataTable,
+} from '@coreui/react'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
-
+import CIcon from '@coreui/icons-react'
 let fields = [
 'id'
 ,'substation'
 ,'bay_number'
 ,'manufacturer'
-,//'scheme_type'
+,'scheme_type'
 ,'serial_number'
-,//'function_type
+,'function_type'
 ,'creation_date',
 'created_by'
 ]
+
 const Collected_Data= () => {
   const  [data, setData] = useState();
-  let history = useHistory()
-
+  const  [tabledata, settableData] = useState(0);
+  const  [redirect, setredirect] = useState(false);
+  
+  let redirect_id = 0;
+  
   useEffect(() => {
 
     axios.get('http://localhost:8000/dashboard/setting/')
     .then(function (response) {
       console.log(response);
       setData(response.data)
-    })
+      
+
+   })
     .catch(function (error) {
       console.log(error);
     });
-  } , [])
-  const handleredirect = (e) => {
 
-    console.log(e)
-
-    history.push('/Settings_Parameters');
+   
 
 
-}
+  }
+   , [])
+
+  const  handleclick = e => {
+    redirect_id = e.id
+    axios.get(`http://localhost:8000/dashboard/setting/${redirect_id}`).then(
+      res => {
+        console.log("herrr", res.data.param)
+        settableData(res.data.param)
+        console.log(e)
+        setredirect(true)
+      }
+      )
+
+  }
+  if (redirect) {
+    return  <Redirect push to={{
+     pathname: '/setting2',
+     state: { data: tabledata }
+   }}/>;
+   }
+   
   return (
     <>
 
@@ -68,10 +92,12 @@ const Collected_Data= () => {
         </CCardBody>
       </CCard>
 
-<CRow>
-        <CCol>
-          <CCard>
-            <CCardBody>
+
+<CCard>
+              <CCardHeader>
+                Combined All Table
+              </CCardHeader>
+              <CCardBody>
               <CDataTable
                 items={data}
                 fields={fields}
@@ -80,12 +106,165 @@ const Collected_Data= () => {
                 bordered
                 size="sm"
                 itemsPerPage={30}
-                onRowClick={(e) => handleredirect(e) }
-                pagination />
+                onRowClick={handleclick }
+                pagination
+                // scopedSlots = {{
+                //   'Flags':
+                //     (item)=>(
+                //       <td>
+                //         <CBadge color={getBadge(item.Flags)}>
+                //           {item.Flags}
+                //         </CBadge>
+                //       </td>
+                //     )
+                // }}
+              />
+              </CCardBody>
+            </CCard>
+
+
+
+        {/* <CCol>
+          <CCard>
+            <CCardBody>
+
+              
+
+              <table className="table table-hover table-outline mb-0 d-none d-sm-table">
+                <thead className="thead-light">
+                  <tr>
+                    <th>No.</th>
+
+                    <th>User</th>
+
+                    <th>S/S</th>
+
+                    <th>Bay Number</th>
+
+                    <th>Manufacturer</th>
+
+                    <th>Relay Type</th>
+
+                    <th>Serial No.</th>
+
+                    <th>Date</th>
+
+                    <th></th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+
+
+                  <tr>
+                    <td>
+                       <div>1</div>
+                       <div className="small text-muted">
+                      </div>
+                    </td>
+
+                    <td>
+                      <div>Rakan A. Hakami</div>
+                      <div className="small text-muted">
+                      </div>
+                    </td>
+
+                    <td>
+                       <div className="clearfix">
+                         <strong>KMT</strong>
+                       </div>
+                     </td>
+
+                     <td>
+                      <strong>  AD03  </strong>
+                     </td>
+
+                     <td>
+                      <strong>  SEL  </strong>
+                     </td>
+
+                     <td>
+                      <strong>  SEL-411L  </strong>
+                     </td>
+
+                     <td>
+                      <strong> SEL12457814563 </strong>
+                     </td>
+
+                     <td>
+                      <strong>11.11.2020</strong>
+                      </td>
+
+                     <td>
+                      <CRow>
+                        <CCol xs="3">
+                          <CButton to="" color="primary" className="px-1">More</CButton>
+                        </CCol>
+
+                      </CRow>
+                     </td>
+                  </tr>
+
+
+                  <tr>
+                    <td>
+                       <div>2</div>
+                       <div className="small text-muted">
+                      </div>
+                    </td>
+
+                    <td>
+                      <div>Rakan A. Hakami</div>
+                      <div className="small text-muted">
+                      </div>
+                    </td>
+
+                    <td>
+                       <div className="clearfix">
+                         <strong>KMT</strong>
+                       </div>
+                     </td>
+
+                     <td>
+                      <strong>  AH14  </strong>
+                     </td>
+
+                     <td>
+                      <strong>  SEL  </strong>
+                     </td>
+
+                     <td>
+                      <strong>  SEL-751  </strong>
+                     </td>
+
+                     <td>
+                      <strong> SEL12457814563 </strong>
+                     </td>
+
+                     <td>
+                      <strong>11.11.2020</strong>
+                      </td>
+
+                     <td>
+                      <CRow>
+                        <CCol xs="3">
+                          <CButton to="" color="primary" className="px-1">More</CButton>
+                        </CCol>
+
+                      </CRow>
+                     </td>
+                  </tr>
+
+
+
+
+                </tbody>
+              </table>
+
             </CCardBody>
           </CCard>
-        </CCol>
-      </CRow>
+        </CCol> */}
 
     </>
   )

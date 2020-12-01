@@ -1,7 +1,9 @@
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 
 const initialState = {
-  sidebarShow: 'responsive'
+  sidebarShow: 'responsive',
+  lskdjflksdjf: 5
 }
 
 const changeState = (state = initialState, { type, ...rest }) => {
@@ -13,5 +15,7 @@ const changeState = (state = initialState, { type, ...rest }) => {
   }
 }
 
-const store = createStore(changeState)
+const store = createStore(changeState, /* preloadedState, */ devToolsEnhancer(
+  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+));
 export default store

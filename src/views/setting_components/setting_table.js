@@ -20,7 +20,7 @@ const getBadge = Flags => {
     default: return 'primary'
   }
 }
-const fields = ['Name','Description', 'Value', 'Flags']
+const fields = ['name','Description', 'value', 'Flags']
 
 class Setting_Table extends Component {
   constructor(props) {
@@ -45,7 +45,8 @@ class Setting_Table extends Component {
               </CCardHeader>
               <CCardBody>
               <CDataTable
-                items={this.props.location.state.data.data}  // should be disabled this line if you want click it from sidebar
+                items={this.props.location.state.data}
+               
                 fields={fields}
                 hover
                 striped

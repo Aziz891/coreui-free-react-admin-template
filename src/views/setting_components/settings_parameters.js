@@ -17,13 +17,29 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import usersData from '../users/UsersData'
+import axios from "axios"
 
-const fields = ['Name','Description', 'Value']
+const fields = ['name','description', 'value']
 
 class Settings_Parameters extends Component {
   constructor(props) {
     super(props);
     this.state = {value: '', file: ''};
+    this.form = {}
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting/`, data: {...this.props.location.state.data.form, param: this.props.location.state.data.table }
+      , headers: { }
+
+    })
+    .then(res => {
+      console.log(res);
+      
+
+    })
   }
 
   render() {
@@ -38,6 +54,8 @@ class Settings_Parameters extends Component {
 
               <CCardBody>
               <CDataTable
+                  items={this.props.location.state.data.table}
+              
                 fields={fields}
                 hover
                 striped

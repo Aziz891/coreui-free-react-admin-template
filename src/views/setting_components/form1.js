@@ -86,6 +86,8 @@ handleChangeFile(event) {
     const form = new FormData();
     form.append('my_field', this.state.value);
     form.append('file', this.state.file);
+
+
       axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting_check/`, data: form
       , headers: { }
     })
@@ -110,7 +112,7 @@ handleChangeFile(event) {
     if (this.state.redirect) {
  return <Redirect push to={{
   pathname: '/setting2',
-  state: { data: this.tableData }
+  state: { data: this.tableData.data }
 }}/>;
 }
 

@@ -31,12 +31,7 @@ import {
 import axios from 'axios'
 
 import CIcon from '@coreui/icons-react'
-
 import MainChartExample from '../charts/MainChartExample.js'
-
-const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
-const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
-
 const doughnutoption = {
   plugins: {
 
@@ -86,6 +81,58 @@ const doughnutoption = {
     ]
   }
 }
+const WidgetsDropdown = lazy(() => import('../widgets/WidgetsDropdown.js'))
+const WidgetsBrand = lazy(() => import('../widgets/WidgetsBrand.js'))
+
+// const doughnutoption = {
+//   plugins: {
+
+
+//     datalabels: {
+//       formatter: function (value, ctx) {
+
+//         let sum = 0;
+//         let dataArr = ctx.chart.data.datasets[0].data;
+//         dataArr.map(function (data) {
+//           sum += data;
+//         });
+//         let percentage = (value * 100 / sum).toFixed(2) + "%";
+//         if ((value * 100 / sum) < 4) {
+//           percentage = '';
+//         }
+//         return percentage;
+
+
+//       },
+//       color: '#fff',
+//       display: 'auto'
+//     }
+
+//   }
+//   ,
+//   tooltips: {
+//     callbacks: {
+//       label: function (tooltip, data) {
+//         let label = ''
+
+//         label = label + data.labels[tooltip.index] + ' : '
+//         label = label + data.datasets[0].data[tooltip.index] + ' ('
+//         let perc = 100 * (data.datasets[0].data[tooltip.index]) / (data.datasets[0].data.reduce((i, j) => (i + j), 0))
+//         label = label + Math.round(perc * 100) / 100 + '%)'
+//         return label
+//       }
+//     }
+//   },
+//   scales: {
+//     xAxes: [{
+//       type: 'time',
+//       time: {
+//         unit: 'month'
+//       }
+//     }
+//     ]
+//   }
+// }
 
 const Dashboard = () => {
   const [chart_data, setChartData] = useState()
@@ -97,7 +144,7 @@ const Dashboard = () => {
     .then(function (response) {
       console.log(response);
       setChartData(response.data)
-
+      
 
    })
     .catch(function (error) {
@@ -108,138 +155,105 @@ const Dashboard = () => {
       console.log(response);
       setChartData2(response.data[1])
       setChartlabels(response.data[0])
+      
+
    })
     .catch(function (error) {
       console.log(error);
     });
+
+
   }, [])
   return (
-<>
+    <>
 
-    {<CCardGroup columns className = "cols-2" >
+      {<CCardGroup columns className="cols-2" >
 
-     {
-      <CCard>
+        {
+          <CCard>
 
-        <CCardHeader>
-         <CRow>
-         <CCol>
-         <h2>Collected Data</h2>
-         </CCol>
+            <CCardHeader>
+              <h2>Collected Data</h2>
+            </CCardHeader>
 
-         <CCol>
-         <CButton to="/collected_data" variant="outline" color="dark" className="float-right">
-            more
-         </CButton>
-         </CCol>
-         </CRow>
-        </CCardHeader>
+            <CCardBody>
+              <CChartBar
+                type="bar"
+                datasets={[
+                  {
+                    label: 'Number of Relays',
+                    backgroundColor: '#f87979',
+                    data:  chart_data   //[{t: '2020-1-1', y: 20}, {t: '2020-3-1', y: 20}, {t: '2020-2-1', y: 20}]
+                  }
+                ]}
+                labels="months"
+                options={{
+                  tooltips: {
+                    enabled: true
+                  }
+                }}
+              />
 
-        <CCardBody>
-          <CChartBar
-            type="bar"
-            datasets={[
-              {
-                label: 'Number of Relays',
-                backgroundColor: '#f87979',
-                data: chart_data
-              }
-            ]}
-            labels="months"
-            options={{
-              tooltips: {
-                enabled: true
-              }
-            }}
-          />
+            </CCardBody>
 
-        </CCardBody>
+            <CCardFooter>
+            </CCardFooter>
 
-        <CCardFooter>
-        </CCardFooter>
+          </CCard>
+        }
 
-      </CCard>
+
+        {
+          <CCard>
+
+            <CCardHeader>
+              <h2>Manufacturers</h2>
+            </CCardHeader>
+
+            <CCardBody>
+              <CChartDoughnut
+                type="doughnut"
+                datasets={[
+                  {
+                    backgroundColor: [
+                      '#41B883',
+                      '#E46651',
+                      '#00D8FF',
+                      '#DD1B16',
+                      '#'
+                    ],
+                    data: chart_data2
+                  }
+                ]}
+                labels= { chart_labels} //{['SEL', 'Siemens', 'ABB', 'GE', 'ZIV']}
+                options={{
+                  tooltips: {
+                    enabled: true
+                  }
+                }}
+              />
+            </CCardBody>
+
+            <CCardFooter>
+            </CCardFooter>
+
+          </CCard>
+        }
+
+      </CCardGroup>
       }
-
 
       {
-      <CCard>
+        <CCard>
 
-        <CCardHeader>
-         <CRow>
-         <CCol>
-         <h2>Manufacturers</h2>
-         </CCol>
+          <CCardBody>
+            <WidgetsDropdown />
+          </CCardBody>
 
-         <CCol>
-         <CButton to="/collected_data" variant="outline" color="dark" className="float-right">
-            more
-         </CButton>
-         </CCol>
-         </CRow>
-        </CCardHeader>
-
-        <CCardBody>
-          <CChartDoughnut
-                    type="doughnut"
-                    datasets={[
-                      {
-                        backgroundColor: [
-                          '#41B883',
-                          '#DD1B16',
-                          '#00D8FF',
-                          '#ffd700',
-                          '#737ca1',
-                          '#ca226b'
-                        ],
-                        data: chart_data2
-                      }
-                    ]}
-                    labels={chart_labels}
-                    options={{
-                      tooltips: {
-                        enabled: true
-                      }
-                    }}
-                  />
-        </CCardBody>
-
-        <CCardFooter>
-        </CCardFooter>
-
-      </CCard>
+        </CCard>
       }
 
-    </CCardGroup>
-  }
-
-     {/*
-      <CCard>
-
-        <CCardHeader>
-         <CRow>
-         <CCol>
-         <h2>Alarms</h2>
-         </CCol>
-
-         <CCol>
-         <CButton  to="/alarms" variant="outline" color="dark"  className="float-right">
-            more
-         </CButton>
-         </CCol>
-         </CRow>
-        </CCardHeader>
-
-        <CCardBody>
-            <WidgetsDropdown />
-        </CCardBody>
-
-      </CCard>
-      */}
-
-
-
-</>
+    </>
   )
 }
 

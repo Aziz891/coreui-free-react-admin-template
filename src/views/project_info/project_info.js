@@ -24,7 +24,7 @@ const Project = () => {
   const [passwd, setpasswd] = useState("")
   const history = useHistory();
 
-    const handleRequest = (user, passwd) => {
+  const handleRequest = (user, passwd) => {
 
     axios.post('http://localhost:8000/dashboard/token-auth/', {
       username: user,
@@ -33,8 +33,8 @@ const Project = () => {
     .then(function (response) {
       console.log(response);
       localStorage.setItem('user', JSON.stringify( response.data))
-      history.push("/dashboard")
-
+      history.push("/dashboard2")
+      
 
    })
     .catch(function (error) {
@@ -64,7 +64,7 @@ const Project = () => {
               <CCard className="p-4">
                 <CCardBody>
 
-                  <CForm onSubmit={ (e) => handleSubmit(e) }>
+                  <CForm  onSubmit={ (e) => handleSubmit(e) }>
                     <h1>Login</h1>
                     <p className="text-muted">Sign In to your account</p>
                     <CInputGroup className="mb-3">
