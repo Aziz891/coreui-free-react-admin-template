@@ -195,7 +195,7 @@ handleChangeFile(event) {
         <CCardBody className="text-center">
            <div>
              {<CForm onSubmit={this.handleSubmit}  encType="multipart/form-data" className="form-horizontal">
-              <CButton   type="submit" size="sm" color="primary"><CIcon name="cil-Spreadsheet" /> Submit</CButton>
+              <CButton   type="submit" shape="pill" size="lg" color="primary"><CIcon name="cil-Spreadsheet" /> Submit</CButton>
               </CForm>}
            </div>
         </CCardBody>

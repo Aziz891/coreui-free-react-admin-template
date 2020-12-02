@@ -144,7 +144,7 @@ const Dashboard = () => {
     .then(function (response) {
       console.log(response);
       setChartData(response.data)
-      
+
 
    })
     .catch(function (error) {
@@ -155,7 +155,7 @@ const Dashboard = () => {
       console.log(response);
       setChartData2(response.data[1])
       setChartlabels(response.data[0])
-      
+
 
    })
     .catch(function (error) {
@@ -165,95 +165,119 @@ const Dashboard = () => {
 
   }, [])
   return (
-    <>
+<>
 
-      {<CCardGroup columns className="cols-2" >
+    {<CCardGroup columns className = "cols-2" >
 
-        {
-          <CCard>
+     {
+      <CCard>
 
-            <CCardHeader>
-              <h2>Collected Data</h2>
-            </CCardHeader>
+        <CCardHeader>
+         <CRow>
+         <CCol>
+         <h2>Collected Data</h2>
+         </CCol>
+         <CCol sm="7" className="d-none d-md-block">
+            <CButton to="/collected_data" variant="outline" color="dark" className="float-right">
+              More
+            </CButton>
+         </CCol>
+         </CRow>
+        </CCardHeader>
 
-            <CCardBody>
-              <CChartBar
-                type="bar"
-                datasets={[
-                  {
-                    label: 'Number of Relays',
-                    backgroundColor: '#f87979',
-                    data:  chart_data   //[{t: '2020-1-1', y: 20}, {t: '2020-3-1', y: 20}, {t: '2020-2-1', y: 20}]
-                  }
-                ]}
-                labels="months"
-                options={{
-                  tooltips: {
-                    enabled: true
-                  }
-                }}
-              />
+        <CCardBody>
+          <CChartBar
+            type="bar"
+            datasets={[
+              {
+                label: 'Number of Relays',
+                backgroundColor: '#f87979',
+                data: chart_data
+              }
+            ]}
+            labels="months"
+            options={{
+              tooltips: {
+                enabled: true
+              }
+            }}
+          />
 
-            </CCardBody>
+        </CCardBody>
 
-            <CCardFooter>
-            </CCardFooter>
-
-          </CCard>
-        }
-
-
-        {
-          <CCard>
-
-            <CCardHeader>
-              <h2>Manufacturers</h2>
-            </CCardHeader>
-
-            <CCardBody>
-              <CChartDoughnut
-                type="doughnut"
-                datasets={[
-                  {
-                    backgroundColor: [
-                      '#41B883',
-                      '#E46651',
-                      '#00D8FF',
-                      '#DD1B16',
-                      '#'
-                    ],
-                    data: chart_data2
-                  }
-                ]}
-                labels= { chart_labels} //{['SEL', 'Siemens', 'ABB', 'GE', 'ZIV']}
-                options={{
-                  tooltips: {
-                    enabled: true
-                  }
-                }}
-              />
-            </CCardBody>
-
-            <CCardFooter>
-            </CCardFooter>
-
-          </CCard>
-        }
-
-      </CCardGroup>
+      </CCard>
       }
+
 
       {
-        <CCard>
+      <CCard>
 
-          <CCardBody>
-            <WidgetsDropdown />
-          </CCardBody>
+        <CCardHeader>
+         <CRow>
+         <CCol>
+         <h2>Manufacturers</h2>
+         </CCol>
+         <CCol sm="7" className="d-none d-md-block">
+            <CButton to="/collected_data" variant="outline" color="dark" className="float-right" >
+              More
+            </CButton>
+         </CCol>
+         </CRow>
+        </CCardHeader>
 
-        </CCard>
+        <CCardBody>
+          <CChartDoughnut
+                    type="doughnut"
+                    datasets={[
+                      {
+                        backgroundColor: [
+                          '#41B883',
+                          '#DD1B16',
+                          '#00D8FF',
+                          '#ffd700',
+                          '#737ca1',
+                          '#ca226b'
+                        ],
+                        data: chart_data2
+                      }
+                    ]}
+                    labels={chart_labels}
+                    options={{
+                      tooltips: {
+                        enabled: true
+                      }
+                    }}
+                  />
+        </CCardBody>
+
+      </CCard>
       }
 
-    </>
+    </CCardGroup>
+  }
+
+     {/*
+      <CCard>
+
+        <CCardHeader>
+         <CRow>
+         <CCol>
+         <h2>Alarms</h2>
+         </CCol>
+
+         </CRow>
+        </CCardHeader>
+
+        <CCardBody>
+            <WidgetsDropdown />
+        </CCardBody>
+
+      </CCard>
+      */}
+
+
+
+</>
   )
 }
 

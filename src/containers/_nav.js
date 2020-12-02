@@ -31,11 +31,11 @@ export default [
 //    name: 'Settings Flags',
 //    to: '/setting_table',
 //  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Settings Parameters',
-    to: '/settings_parameters',
-  },
+//  {
+//    _tag: 'CSidebarNavItem',
+//    name: 'Settings Parameters',
+//    to: '/settings_parameters',
+//  },
 //  {
 //     _tag: 'CSidebarNavItem',
 //     name: 'Users',

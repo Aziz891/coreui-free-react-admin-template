@@ -8,7 +8,7 @@ import {
    CCardBody,
    CCardFooter,
    CCol,
-   CButton, 
+   CButton,
 } from '@coreui/react'
 import {
   CBadge,
@@ -32,23 +32,23 @@ const Collected_Data= () => {
   const  [data, setData] = useState();
   const  [tabledata, settableData] = useState(0);
   const  [redirect, setredirect] = useState(false);
-  
+
   let redirect_id = 0;
-  
+
   useEffect(() => {
 
     axios.get('http://localhost:8000/dashboard/setting/')
     .then(function (response) {
       console.log(response);
       setData(response.data)
-      
+
 
    })
     .catch(function (error) {
       console.log(error);
     });
 
-   
+
 
 
   }
@@ -72,7 +72,7 @@ const Collected_Data= () => {
      state: { data: tabledata }
    }}/>;
    }
-   
+
   return (
     <>
 
@@ -94,9 +94,6 @@ const Collected_Data= () => {
 
 
 <CCard>
-              <CCardHeader>
-                Combined All Table
-              </CCardHeader>
               <CCardBody>
               <CDataTable
                 items={data}
@@ -128,7 +125,7 @@ const Collected_Data= () => {
           <CCard>
             <CCardBody>
 
-              
+
 
               <table className="table table-hover table-outline mb-0 d-none d-sm-table">
                 <thead className="thead-light">

@@ -33,8 +33,8 @@ const Project = () => {
     .then(function (response) {
       console.log(response);
       localStorage.setItem('user', JSON.stringify( response.data))
-      history.push("/dashboard2")
-      
+      history.push("/dashboard")
+
 
    })
     .catch(function (error) {
