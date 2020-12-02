@@ -21,11 +21,11 @@ export default [
     to: '/setting',
     icon: 'cil-IndentDecrease',
   },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Settings Info',
-    to: '/settings_info',
-  },
+//  {
+//    _tag: 'CSidebarNavItem',
+//    name: 'Settings Info',
+//    to: '/settings_info',
+//  },
 //  {
 //    _tag: 'CSidebarNavItem',
 //    name: 'Settings Flags',
