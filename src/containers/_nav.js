@@ -23,6 +23,12 @@ export default [
   },
 //  {
 //    _tag: 'CSidebarNavItem',
+//    name: 'Settings Showing',
+//    to: '/setting_showing',
+//    icon: 'cil-IndentDecrease',
+//  },
+//  {
+//    _tag: 'CSidebarNavItem',
 //    name: 'Settings Info',
 //    to: '/settings_info',
 //  },
