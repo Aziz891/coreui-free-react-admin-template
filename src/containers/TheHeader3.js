@@ -43,7 +43,7 @@ const TheHeader3 = () => {
       <CHeaderNav className="px-3">
          <CIcon
             className="c-sidebar-brand-full"
-            img src="/images/relaypioneers-o.png"
+            img src="/images/relaypioneers-O.png"
             height={50}
           />
       </CHeaderNav>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Redirect} from 'react-router'
-
+import {urls} from "../../../urls";
 import axios from 'axios';
 import {
   CButton,
@@ -77,44 +77,54 @@ handleredirect(){
   }
     // form.append('my_field', this.state.value);
     // form.append('file', this.state.file);
-    axios.get("http://192.168.4.1/hello?query1=acc").then(res => console.log('1', res) )
-    axios.get("http://192.168.4.1/hello?query1=OTTER").then(res => console.log('2', res) )
-
-    axios( { method: 'get'  , url: `http://192.168.4.1/hello?query1=show`, data: form
-      , headers: { }
-
-    })
-    .then(res => {
-
-      try {
-        
-              console.log(res.data);
-              var patt = /(\S+\s+):=(\s+\S+)/g;
-              var test1 = res.data.match(patt);
-              let x = []
-              test1.forEach((i, index) => { x.push({name: i.split(':=')[0], value: i.split(':=')[1]})})
-              console.log(x)
-              this.tableData = x
-              this.setState({showModal: true, })
-              
-
-        
-      } catch (error) {
-        console.log(error)
-      }
-
-
-    })
-
-      axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting/`, data: form
-      , headers: { }
-
-    })
-    .then(res => {
-      console.log(res);
+    // axios.get( urls.esp + "hello?query1=acc").then(res => console.log('1', res) )
+    // axios.get( urls.esp + "hello?query1=OTTER").then(res => console.log('2', res) )
+    
+    
+    let fetchSummoner = async() => {
       
+      const res = await axios.get( urls.esp + "hello?query1=acc").then(res => console.log('1', res) )
+  
+      // console.log("1", res.data)
+      
+      const res2 = await   axios.get( urls.esp + "hello?query1=OTTER").then(res => console.log('2', res) )
+      
+      // console.log("2", res2.data)
 
-    })
+      
+      
+  
+      const res3 = await axios( { method: 'get'  , url: urls.esp + `hello?query1=show`, data: form
+       , headers: { }
+    
+     })
+     .then(res => {
+    
+       try {
+         
+               console.log(res.data);
+               var patt = /(\S+\s+):=(\s+\S+)/g;
+               var test1 = res.data.match(patt);
+               let x = []
+               test1.forEach((i, index) => { x.push({name: i.split(':=')[0], value: i.split(':=')[1]})})
+               console.log(x)
+               this.tableData = x
+               this.setState({showModal: true, })
+               
+    
+         
+       } catch (error) {
+         console.log(error)
+       }
+    
+    
+     })
+      return 0;
+  }
+  fetchSummoner();
+
+
+      
 
 
 

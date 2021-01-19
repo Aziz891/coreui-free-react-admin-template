@@ -66,7 +66,7 @@ const Login = () => {
 
                     <CIcon
                       className="c-sidebar-brand-full"
-                      img src="/images/relaypioneers-o.png"
+                      img src="/images/relaypioneers-O.png" 
                       height={95}
                     />
 

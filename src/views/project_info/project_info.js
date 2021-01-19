@@ -17,6 +17,8 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { useHistory } from "react-router-dom";
+import {urls} from "../../urls";
+
 
 
 const Project = () => {
@@ -26,7 +28,7 @@ const Project = () => {
 
   const handleRequest = (user, passwd) => {
 
-    axios.post('http://localhost:8000/dashboard/token-auth/', {
+    axios.post(urls.api + 'dashboard/token-auth/', {
       username: user,
       password: passwd
     })

@@ -1,4 +1,5 @@
 import React, { lazy, useEffect, useState } from 'react'
+import {urls} from "../../urls";
 import {
   CCardGroup,
   CBadge,
@@ -74,9 +75,12 @@ const doughnutoption = {
   scales: {
     xAxes: [{
       type: 'time',
-      time: {
-        unit: 'month'
-      }
+       // time: {
+        //     // unit: 'day',
+        //     displayFormats: {
+        //       day: 'DD-MMM',
+        //     },
+        // },
     }
     ]
   }
@@ -140,9 +144,10 @@ const Dashboard = () => {
   const [chart_labels, setChartlabels] = useState()
   useEffect(() => {
 
-    axios.get('http://localhost:8000/dashboard/chart/')
+    axios.get(urls.api + 'dashboard/chart/')
     .then(function (response) {
       console.log(response);
+      
       setChartData(response.data)
 
 
@@ -150,7 +155,7 @@ const Dashboard = () => {
     .catch(function (error) {
       console.log(error);
     });
-    axios.get('http://localhost:8000/dashboard/chart2/')
+    axios.get( urls.api + 'dashboard/chart2/')
     .then(function (response) {
       console.log(response);
       setChartData2(response.data[1])
@@ -195,8 +200,30 @@ const Dashboard = () => {
                 data: chart_data
               }
             ]}
-            labels="months"
+            // labels="months"
             options={{
+              scales: {
+                xAxes: [{
+                    gridLines: false,
+                    type: 'time',
+                    time: {
+                        unit: 'month',
+                        min: "2020-9-5",
+                        max: "2021-2-2"
+                    }
+                }],yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    // maxTicksLimit: 5,
+                    // stepSize: Math.ceil(100 / 5),
+                    // max: 100
+                  },
+                  gridLines: {
+                    display: true
+                  }
+                }] 
+            },
+            
               tooltips: {
                 enabled: true
               }

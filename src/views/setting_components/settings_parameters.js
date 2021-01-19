@@ -1,4 +1,5 @@
 import React, {Component, useState} from 'react'
+import {Redirect} from 'react-router'
 import {
   CBadge,
   CCard,
@@ -18,31 +19,47 @@ import {
 import CIcon from '@coreui/icons-react'
 import usersData from '../users/UsersData'
 import axios from "axios"
+import { urls } from '../../urls'
 
 const fields = ['name','description', 'value']
 
 class Settings_Parameters extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', file: ''};
+    this.state = {value: '', file: '', showModal: false, redirect:false};
     this.form = {}
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  modalToggle(value){
+
+    this.setState({showModal: value});
+}
+
+handleredirect(){
+  this.setState({redirect: true});
+
+}
 
   handleSubmit(e) {
     e.preventDefault();
-    axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting/`, data: {...this.props.location.state.data.form, param: this.props.location.state.data.table }
+    axios( { method: 'post'  , url: urls.api + `dashboard/setting/`, data: {...this.props.location.state.data.form, param: this.props.location.state.data.table }
       , headers: { }
 
     })
     .then(res => {
       console.log(res);
-      
+      this.setState({showModal: true, })
 
     })
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect push to={{
+       pathname: '/collected_data'
+       
+     }}/>;
+     }
     return (
       <>
         <CRow>
@@ -73,6 +90,24 @@ class Settings_Parameters extends Component {
             </CCard>
           </CCol>
         </CRow>
+        {<CModal
+        show={this.state.showModal}
+        onClose={() => this.modalToggle(false)}
+      >
+        <CModalHeader closeButton>
+          <CModalTitle>Analyzer</CModalTitle>
+        </CModalHeader>
+        <CModalBody>
+         The setting file has been succefully uploaded to the server.
+        </CModalBody>
+        <CModalFooter>
+          <CButton  onClick={() => this.handleredirect()} color="primary">Continue</CButton>{' '}
+          <CButton
+            color="secondary"
+            onClick={() => this.modalToggle(false)}
+          >Cancel</CButton>
+        </CModalFooter>
+ </CModal>}
 
       </>
     )

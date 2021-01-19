@@ -18,6 +18,7 @@ import {
   CModalFooter,
   CModalTitle
 } from '@coreui/react'
+import {urls} from "../../urls";
 
 import {
   CChartBar,
@@ -93,7 +94,7 @@ const Dashboard2 = () => {
   const [chart_labels, setChartlabels] = useState()
   useEffect(() => {
 
-    axios.get('http://localhost:8000/dashboard/chart/')
+    axios.get(urls.api + 'dashboard/chart/')
     .then(function (response) {
       console.log(response);
       setChartData(response.data)
@@ -103,7 +104,7 @@ const Dashboard2 = () => {
     .catch(function (error) {
       console.log(error);
     });
-    axios.get('http://localhost:8000/dashboard/chart2/')
+    axios.get(urls.api + 'dashboard/chart2/')
     .then(function (response) {
       console.log(response);
       setChartData2(response.data[1])

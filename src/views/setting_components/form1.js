@@ -1,5 +1,6 @@
 import React from 'react'
 import {Redirect} from 'react-router'
+import {urls} from "../../urls";
 
 import axios from 'axios';
 import {
@@ -88,7 +89,7 @@ handleChangeFile(event) {
     form.append('file', this.state.file);
 
 
-      axios( { method: 'post'  , url: `http://127.0.0.1:8000/dashboard/setting_check/`, data: form
+      axios( { method: 'post'  , url: urls.api +  `dashboard/setting_check/`, data: form
       , headers: { }
     })
     .then(res => {

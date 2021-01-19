@@ -1,5 +1,6 @@
 import React, { lazy, useEffect, useState, Component } from 'react'
 import { Redirect } from 'react-router';
+import {urls} from "../../../urls";
 import {
    CContainer,
    CRow,
@@ -17,13 +18,13 @@ import {
 import axios from 'axios'
 import CIcon from '@coreui/icons-react'
 let fields = [
-'id'
+// 'id'
 ,'substation'
 ,'bay_number'
 ,'manufacturer'
-,'scheme_type'
-,'serial_number'
-,'function_type'
+// ,'scheme_type'
+// ,'serial_number'
+// ,'function_type'
 ,'creation_date',
 'created_by'
 ]
@@ -37,7 +38,7 @@ const Collected_Data= () => {
 
   useEffect(() => {
 
-    axios.get('http://localhost:8000/dashboard/setting/')
+    axios.get(urls.api + 'dashboard/setting/')
     .then(function (response) {
       console.log(response);
       setData(response.data)
@@ -56,7 +57,7 @@ const Collected_Data= () => {
 
   const  handleclick = e => {
     redirect_id = e.id
-    axios.get(`http://localhost:8000/dashboard/setting/${redirect_id}`).then(
+    axios.get(urls.api + `dashboard/setting/${redirect_id}`).then(
       res => {
         console.log("herrr", res.data.param)
         settableData(res.data.param)
@@ -83,7 +84,7 @@ const Collected_Data= () => {
               <h2 id="collect" className="card-title mb-0">Collected Data</h2>
             </CCol>
 
-            <CCol sm="7" className="d-none d-md-block">
+            <CCol sm="7" className=" d-md-block">
               <CButton to="/settings_info" color="success" className="float-right" active tabIndex={-1}>
                Add new
               </CButton>
