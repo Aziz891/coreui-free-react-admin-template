@@ -22,7 +22,7 @@ const getBadge = Flags => {
 }
 const fields = ['name','Description', 'value', 'Flags']
 
-class Setting_Table extends Component {
+class Setting_Showing extends Component {
   constructor(props) {
     super(props);
     this.state = {value: '', file: ''};
@@ -41,7 +41,7 @@ class Setting_Table extends Component {
           <CCol>
             <CCard>
               <CCardHeader>
-                Settings Analyzer
+                Settings Showing
               </CCardHeader>
               <CCardBody>
               <CDataTable
@@ -75,4 +75,4 @@ class Setting_Table extends Component {
   }
 }
 
-export default Setting_Table
+export default Setting_Showing
