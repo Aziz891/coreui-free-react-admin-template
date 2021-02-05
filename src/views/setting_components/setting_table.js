@@ -20,7 +20,7 @@ const getBadge = Flags => {
     default: return 'primary'
   }
 }
-const fields = ['name','Description', 'value', 'Flags']
+const fields = ['Name','Description', 'Value', 'Flags']
 
 class Setting_Table extends Component {
   constructor(props) {

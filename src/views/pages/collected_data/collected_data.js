@@ -95,6 +95,7 @@ const Collected_Data= () => {
               <CDataTable
                 items={data}
                 fields={fields}
+                sorter={true}
                 hover
                 striped
                 bordered

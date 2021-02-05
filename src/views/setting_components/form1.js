@@ -112,7 +112,7 @@ handleChangeFile(event) {
 
     if (this.state.redirect) {
  return <Redirect push to={{
-  pathname: '/setting2',
+  pathname: '/setting_table',
   state: { data: this.tableData.data }
 }}/>;
 }

@@ -6,8 +6,10 @@ import {
   CCardHeader,
   CCol,
   CDataTable,
-  CRow
+  CRow, 
+  CButton
 } from '@coreui/react'
+import {urls} from "../../urls";
 
 import usersData from '../users/UsersData'
 
@@ -42,6 +44,14 @@ class Setting_Showing extends Component {
             <CCard>
               <CCardHeader>
                 Settings Showing
+
+              <CButton  color="success" className="float-right" active tabIndex={-1}  onClick={(e) => {
+         e.preventDefault();
+        window.location.href= urls.api +  `dashboard/export?id=${this.props.location.state.data[0].setting_id}`;
+      }} >
+               Export
+              </CButton>
+        
               </CCardHeader>
               <CCardBody>
               <CDataTable
