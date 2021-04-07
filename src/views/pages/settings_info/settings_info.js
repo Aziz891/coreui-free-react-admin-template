@@ -79,29 +79,29 @@ handleredirect(){
     // form.append('file', this.state.file);
     // axios.get( urls.esp + "hello?query1=acc").then(res => console.log('1', res) )
     // axios.get( urls.esp + "hello?query1=OTTER").then(res => console.log('2', res) )
-    
-    
-    let fetchSummoner = async() => {
-      
-      const res = await axios.get( urls.esp + "hello?query1=acc").then(res => console.log('1', res) )
-  
-      // console.log("1", res.data)
-      
-      const res2 = await   axios.get( urls.esp + "hello?query1=OTTER").then(res => console.log('2', res) )
-      
-      // console.log("2", res2.data)
 
-      
-      
-  
-      const res3 = await axios( { method: 'get'  , url: urls.esp + `hello?query1=show`, data: form
+
+    let fetchSummoner = async() => {
+
+//      const res = await axios.get( urls.esp + "hello?query1=acc").then(res => console.log('1', res) )
+//
+//      // console.log("1", res.data)
+//
+//      const res2 = await   axios.get( urls.esp + "hello?query1=OTTER").then(res => console.log('2', res) )
+//
+//      // console.log("2", res2.data)
+//
+//
+
+
+      const res3 = await axios( { method: 'get'  , url: urls.esp , data: form
        , headers: { }
-    
+
      })
      .then(res => {
-    
+
        try {
-         
+
                console.log(res.data);
                var patt = /(\S+\s+):=(\s+\S+)/g;
                var test1 = res.data.match(patt);
@@ -110,21 +110,21 @@ handleredirect(){
                console.log(x)
                this.tableData = x
                this.setState({showModal: true, })
-               
-    
-         
+
+
+
        } catch (error) {
          console.log(error)
        }
-    
-    
+
+
      })
       return 0;
   }
   fetchSummoner();
 
 
-      
+
 
 
 
@@ -154,7 +154,7 @@ handleOnChange = (e) => {
        state: { data: {table: this.tableData, form: this.state.formData } }
      }}/>;
      }
-     
+
     return (
       <>
 
@@ -252,7 +252,7 @@ handleOnChange = (e) => {
                         </CFormGroup>
 
                          <CFormGroup variant="custom-checkbox" inline>
-                            <CInputCheckbox custom id="inline-checkbox2" 
+                            <CInputCheckbox custom id="inline-checkbox2"
                             name="inline-checkbox2" value="option2" />
                             <CLabel variant="custom-checkbox" htmlFor="inline-checkbox2">Differential</CLabel>
                          </CFormGroup>
@@ -271,7 +271,7 @@ handleOnChange = (e) => {
                 </CFormGroup>*/}
 
 
-                   <CButton size="sm" color="info" type="submit" >      
+                   <CButton size="sm" color="info" type="submit" >
                    {/* onClick={this.uploadsettings}> */}
                    <CIcon name="cil-CloudDownload"/> Collect Settings</CButton>
 

@@ -48,6 +48,8 @@ const Alarms = React.lazy(() => import('./views/pages/alarms/alarms'));
 const Collected_Data = React.lazy(() => import('./views/pages/collected_data/collected_data'));
 const Outages = React.lazy(() => import('./views/pages/outages/outages'));
 const Login = React.lazy(() => import('./views/pages/login/Login'));
+const Connected_Relays = React.lazy(() => import('./views/pages/connected_relays/connected_relays'));
+const Gauges = React.lazy(() => import('./views/pages/gauges/gauges'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -55,6 +57,8 @@ const routes = [
   { path: '/dashboard2', name: 'Dashboard2', component: Dashboard2 },
   { path: '/setting', name: 'setting', component: Setting },
   { path: '/settings_info', name: 'settings_info', component: Settings_Info },
+  { path: '/connected_relays', name: 'connected_relyas', component: Connected_Relays },
+  { path: '/gauges', name: 'gauges', component: Gauges },
   { path: '/alarms', name: 'alarms', component: Alarms },
   { path: '/collected_data', name: 'collected_data', component: Collected_Data },
   { path: '/outages', name: 'outages', component: Outages },

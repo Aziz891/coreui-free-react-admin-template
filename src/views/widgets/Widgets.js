@@ -181,7 +181,7 @@ const Widgets = () => {
           <CIcon name="cil-people" height="36"/>
         </CWidgetProgressIcon>
         <CWidgetProgressIcon
-          header="385"
+          header="999"
           text="New Clients"
           color="gradient-success"
           inverse

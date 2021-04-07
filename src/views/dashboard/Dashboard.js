@@ -16,8 +16,16 @@ import {
   CModal,
   CModalBody,
   CModalHeader,
+  CDropdown,
+  CDropdownMenu,
+  CDropdownItem,
+  CDropdownToggle,
+  CWidgetBrand,
+  CWidgetProgressIcon,
   CModalFooter,
-  CModalTitle
+  CModalTitle,
+  CWidgetSimple,
+  CWidgetDropdown,
 } from '@coreui/react'
 
 import {
@@ -28,6 +36,9 @@ import {
   CChartPie,
   CChartPolarArea
 } from '@coreui/react-chartjs'
+
+import ChartLineSimple from '../charts/ChartLineSimple'
+import ChartBarSimple from '../charts/ChartBarSimple'
 
 import axios from 'axios'
 
@@ -147,7 +158,7 @@ const Dashboard = () => {
     axios.get(urls.api + 'dashboard/chart/')
     .then(function (response) {
       console.log(response);
-      
+
       setChartData(response.data)
 
 
@@ -221,9 +232,9 @@ const Dashboard = () => {
                   gridLines: {
                     display: true
                   }
-                }] 
+                }]
             },
-            
+
               tooltips: {
                 enabled: true
               }
@@ -280,27 +291,73 @@ const Dashboard = () => {
       </CCard>
       }
 
+
     </CCardGroup>
+
+
+
   }
 
-     {/*
+     {
       <CCard>
 
         <CCardHeader>
          <CRow>
-         <CCol>
-         <h2>Alarms</h2>
-         </CCol>
-
+           <CCol>
+             <h2>Connected Relays</h2>
+           </CCol>
+           <CCol sm="7" className="d-none d-md-block">
+              <CButton to="/connected_relays" variant="outline" color="dark" className="float-right" >
+                   More
+              </CButton>
+            </CCol>
          </CRow>
         </CCardHeader>
 
         <CCardBody>
-            <WidgetsDropdown />
+               <CRow>
+                  <CCol sm="6" lg="3">
+                     <CWidgetDropdown
+                       color="gradient-warning"
+                       header="COA"
+                       text="547"
+                      >
+                     </CWidgetDropdown>
+                  </CCol>
+
+                  <CCol sm="6" lg="3">
+                     <CWidgetDropdown
+                       color="gradient-info"
+                       header="WOA"
+                       text="987"
+                      >
+                     </CWidgetDropdown>
+
+                  </CCol>
+
+                  <CCol sm="6" lg="3">
+                     <CWidgetDropdown
+                       color="gradient-primary"
+                       header="EOA"
+                       text="769"
+                      >
+                     </CWidgetDropdown>
+                  </CCol>
+
+                  <CCol sm="6" lg="3">
+                     <CWidgetDropdown
+                       color="gradient-success"
+                       header="SOA"
+                       text="332"
+                      >
+                     </CWidgetDropdown>
+                  </CCol>
+
+               </CRow>
         </CCardBody>
 
       </CCard>
-      */}
+      }
 
 
 

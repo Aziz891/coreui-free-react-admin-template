@@ -21,6 +21,16 @@ export default [
     to: '/setting',
     icon: 'cil-IndentDecrease',
   },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Connected_Relays',
+    to: '/connected_relays',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Gauges',
+    to: '/gauges',
+  },
 //  {
 //    _tag: 'CSidebarNavItem',
 //    name: 'Settings Showing',
@@ -67,7 +77,6 @@ export default [
 //       color: 'info',
 //       text: 'NEW',
 //     },
-//
 //   },
 //   {
 //     _tag: 'CSidebarNavTitle',
